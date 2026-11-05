@@ -21,7 +21,7 @@
 
 Mermaid source:
 
-```
+```mermaid
 swimlane-beta TB
   subgraph FAM["Residents' Family"]
     a1("Send message to nurses")
