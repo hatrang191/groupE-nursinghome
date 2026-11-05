@@ -158,7 +158,7 @@ Filled in during Lesson 8, from the Screen List.
 | Every fork has a matching join | Pass (no fork in this diagram) | | |
 | Every system action cites an FR | Pass (7 of 7) | | |
 | Every FR of this use case appears in the diagram | 6 of 7. FR-03-07 is left out on purpose for now | | |
-| Lane names match the Context Diagram and the use case actors; no Web App, API or database lanes | To check: system name "Dien Hong App" | | |
+| Lane names match the Context Diagram and the use case actors; no Web App, API or database lanes | Pass. System name "Dien Hong System" | | |
 | Related sequence diagram uses the same names and FR IDs; its alt fragments appear here as decisions | To check | | |
 | AI critic prompt run, findings resolved or logged as open questions | To run | | |
 
