@@ -30,7 +30,7 @@ swimlane-beta LR
     start@{ shape: sm-circ }
     r1("Detect abnormal event")
   end
-  subgraph SYS["Dien Hong App"]
+  subgraph SYS["Dien Hong System"]
     s0("Receive radar event (FR-03-01)")
     s1("Store alert (FR-03-01)")
     o1["Alert [New]"]
