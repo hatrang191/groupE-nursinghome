@@ -4,8 +4,7 @@
 
 | \# | Finding | Source to fix | Action | Owner | Status |
 | :---- | :---- | :---- | :---- | :---- | :---- |
-| 1 | The push notice to families in UC-07 goes through a push service (seen in the sequence for UC-07), but that service is missing from the Context Diagram&nbsp; | Context Diagram&nbsp; | Add “Push notification service” as an external entity&nbsp; | Integrator | Done |
-| 2 | Yes. | Context Diagram | No change. UC-06 is started by the Radar and has a 1-minute wait loop. UC-07 starts when the Alert changes state and has time-based retries. | Nguyen Ha Linh Trang | Done |
+| 1 | Yes. | Context Diagram | No change. UC-06 is started by the Radar and has a 1-minute wait loop. UC-07 starts when the Alert changes state and has time-based retries. | Nguyen Ha Linh Trang | Done |
 |  | The Use Case Diagram shows “Send abnormal alert” (Radar) and “Mark false alert” (extend of Receive alert), and neither is in the index&nbsp; | Use Case Diagram&nbsp; | “Send abnormal alert” is the start of UC-06 (Radar lane), so no new use case. Add “Mark false alert” as a guarded branch in AD-UC-06, because an extend gets its own file only if it has decisions of its own&nbsp; | Nguyen Ha Linh Trang | Done |
 | 3 | The sequence for “Receive alert” told UC-06 (nurses) and UC-07 (family) together, and the Use Case Diagram shows one “Receive alert” for Nurse, Family and Radar&nbsp; | Sequence Diagrams, Use Case Diagram&nbsp; | Split into SD-UC-06 and SD-UC-07. Add UC-07 to the Use Case Diagram with Residents’ Family as primary actor&nbsp; | Integrator | Done |
 | 4 | In UC-09, who starts the message and whether the conversation continues are user choices&nbsp; | Sequence Diagrams | Moved both to the activity diagram (`d1` and `d2` in AD-UC-09). Keep `alt` in SD-UC-09 only for conditions of the interaction&nbsp; | Tran Le Bao An | Done |
