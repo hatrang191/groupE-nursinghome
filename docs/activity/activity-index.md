@@ -28,7 +28,7 @@ Use cases
 | UC-11 | Set up accounts | F-06 | Must | `AD-UC-11.md` | Reviewed | Le Thi Thuy Linh |  |
 | UC-12 | Assign role-based permissions | F-06 | Must | `AD-UC-12.md` | Reviewed | Le Thi Thuy Linh |  |
 | UC-13 | Monitor radar status | F-06 | Should | later |  |  |  |
-| UC-14 (proposed, see finding 6\) | View access and action logs | F-06 | Could | not needed |  |  | This is a query and display operation, with no IF statements. |
+| UC-14 | View access and action logs | F-06 | Could | not needed |  |  | This is a query and display operation, with no IF statements. |
 
 Selection basis for the Must use cases that get a diagram:
 
