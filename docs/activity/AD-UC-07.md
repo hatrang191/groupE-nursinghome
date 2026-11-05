@@ -6,12 +6,12 @@
 | Use case | `UC-07 Receive alert notice` |
 | Feature | `F-03 Abnormal Alert Handling` |
 | Primary actor | Residents' Family (they receive the notice; the flow starts from an alert state change in UC-06) |
-| Lanes | Radar · Dien Hong App (our system, one lane) · Residents' Family |
-| Inputs (L3-L5) | Context Diagram v[n] (Radar, Residents' Family) · Use Case Diagram v[n] (UC-07 added) · Sequence: `SD-UC-07` · Architecture/ADR [n] · W1 rows FR-03-08 to FR-03-10 · `AD-UC-06` (states of the Alert) |
+| Lanes | Radar · Dien Hong System (our system, one lane) · Residents' Family |
+| Inputs (L3-L5) | Context Diagram v[n] (Radar, Residents' Family) · Use Case Diagram v[n] (UC-07 added) · Sequence: `SD-UC-07` · Architecture/ADR [n] · W1 rows FR-03-08 to FR-03-10 · `AD-UC-[...]` |
 | Trigger | An alert reaches the state `New` or the state `Closed` (see `AD-UC-06`) |
 | Preconditions | none (a resident without linked family is handled by FR-03-10) |
 | Success end state | A dangerous alert: the family got one first notice and, when the alert was closed, one closed notice. A not dangerous alert: the family got nothing. |
-| Failure end state(s) | A dangerous alert whose resident has no linked family member: the push is skipped. A dangerous alert whose first push failed after [n] retries: the failure is logged. In both cases no closed notice is sent. |
+| Failure end state(s) | A dangerous alert whose resident has no linked family member: the push is skipped. A dangerous alert whose first push failed after [n] retries: the failure is logged. In b[...]
 | FRs covered | `FR-03-08`, `FR-03-09`, `FR-03-10` |
 | Left out for now | none |
 | Business rules applied | `BR-03-01` An alert is dangerous when its severity is High [assumed, ask the client] |
@@ -30,7 +30,7 @@ swimlane-beta LR
     start@{ shape: sm-circ }
     r1("Detect abnormal event")
   end
-  subgraph SYS["Dien Hong App"]
+  subgraph SYS["Dien Hong System"]
     s0("Receive radar event (FR-03-01)")
     d2{" "}
     d5{" "}
@@ -108,12 +108,12 @@ Values marked [assumed] are defaults. The team confirms them with the client.
 
 | Branch | Given | When | Then |
 |---|---|---|---|
-| s0 → d2 [severity dangerous] | A new alert with severity High for the resident of room 204, who has 2 linked family members | The alert is stored with status New | Both family members receive one first notice and the notice is remembered as First sent |
+| s0 → d2 [severity dangerous] | A new alert with severity High for the resident of room 204, who has 2 linked family members | The alert is stored with status New | Both family members receive one first notice |
 | s0 → d2 [not dangerous] | A new alert with severity Low | The alert is stored with status New | The family receives nothing |
-| d5 [no linked family member] | A new alert with severity High for a resident who has no linked family member | The alert is stored with status New | The push is skipped, nothing is sent and the activity ends. No closed notice is sent later |
-| d6 [push failed, fewer than n retries] | A first notice was sent and the push failed (retry count 0) | The system sees the failure | The system retries, the retry count becomes 1 and the first notice is sent again |
-| d6 [push failed, n retries done] | The push failed and the system already retried n times | The system sees the failure | The failed push is logged and the activity ends. No closed notice is sent later |
-| o1 → s8 → s9 | The alert with severity High had a first notice | The alert status becomes Closed with outcome "false alarm" | Both family members receive one closed notice showing the outcome [assumed] |
+| d5 [no linked family member] | A new alert with severity High for a resident who has no linked family member | The alert is stored with status New | The push is skipped, nothing is sent and the failure is logged or noted according to FR-03-10 |
+| d6 [push failed, fewer than n retries] | A first notice was sent and the push failed (retry count 0) | The system sees the failure | The system retries, the retry count becomes 1 and the first notice is retried |
+| d6 [push failed, n retries done] | The push failed and the system already retried n times | The system sees the failure | The failed push is logged and the activity ends. No closed notice is sent |
+| o1 → s8 → s9 | The alert with severity High had a first notice | The alert status becomes Closed with outcome "false alarm" | Both family members receive one closed notice showing the outcome |
 | d2 [not dangerous] → end | The alert with severity Low had no first notice | The alert status becomes Closed | The family receives nothing [assumed, see question 3] |
 
 ## 4. Object states used
@@ -162,7 +162,7 @@ Filled in during Lesson 8, from the Screen List.
 | Every fork has a matching join | Pass (no fork in this diagram) | | |
 | Every system action cites an FR | Pass (7 of 7: `s0` FR-03-01, `s8` FR-03-09, `s3`, `s9`, `s11`, `s12`, `s13`) | | |
 | Every FR of this use case appears in the diagram | 3 of 3 | | |
-| Lane names match the Context Diagram and the use case actors; no Web App, API or database lanes | To check: system name "Dien Hong App" | | |
+| Lane names match the Context Diagram and the use case actors; no Web App, API or database lanes | To check: system name "Dien Hong System" | | |
 | Related sequence diagram uses the same names and FR IDs; its alt fragments appear here as decisions | To check | | |
 | AI critic prompt run, findings resolved or logged as open questions | To run | | |
 
@@ -172,7 +172,57 @@ Filled in during Lesson 8, from the Screen List.
 |---|---|
 | Use case inventory (W0 Table 1) | **Add** `UC-07 Receive alert notice`, primary actor Residents' Family, feature F-03. Add it to the Use Case Diagram as well |
 | Priority | Both FRs are Should, so by the course rule the use case is Should and gets "later". Either set the priority of UC-07 to Must, or keep this diagram as an early draft |
-| FR-03-08 | **Renumber** the old FR-03-03 to FR-03-08, change its UC column (UC-08 in the old list) to UC-07, and change the sentence: "WHEN a new alert is stored and its severity is dangerous (BR-03-01), the system SHALL send one push notice to the family members of that resident and SHALL remember that the first notice was sent" |
-| FR-03-09 | **New**, Should (numbered after FR-03-08): "WHEN an alert is set to Closed and its first notice was sent to the family, the system SHALL send one push notice to the family members of that resident" |
-| FR-03-10 | **New**, Should: "IF a resident has no linked family member, the system SHALL skip the push. IF a push fails, the system SHALL retry [n] times and log it". Now in the diagram (`d5`, `s11`, `d6`, `s13`, `s12`). Fix the value of [n] (open question 5). Also check that F-06 (UC-13) has a logging FR that includes the failed-push log |
+| FR-03-08 | **Renumber** the old FR-03-03 to FR-03-08, change its UC column (UC-08 in the old list) to UC-07, and change the sentence: "WHEN a new alert is stored and its severity is dangerous ([...] |
+| FR-03-09 | **New**, Should (numbered after FR-03-08): "WHEN an alert is set to Closed and its first notice was sent to the family, the system SHALL send one push notice to the family members of the resident" |
+| FR-03-10 | **New**, Should: "IF a resident has no linked family member, the system SHALL skip the push. IF a push fails, the system SHALL retry [n] times and log it". Now in the diagram (`d5`, `s11`, `s13`, `s12`) |
 | BR-03-01 | **New**: an alert is dangerous when its severity is High |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+n/a
