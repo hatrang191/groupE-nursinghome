@@ -120,15 +120,3 @@ Filled in during Lesson 8, from the Screen List.
 Template source: DBIZ2 Lesson 7, VJCBI College \- FTU.&nbsp;
 
 Notation: OMG UML 2.5.1, Clause 15\.
-
----
-gdoc_comments:
-  c1:
-    status: ACTIVE
-    token: AX5pRSkL4f2a6UAwbFZlHC1wirvTgMr1P5oRpnw_CcfSFVcDzQrJ5V5ygCV53wadEvKqRnFrSaS4S9z2GYX7y-uLYhlIH30RLL67RtB85ad1wEx3u0Jv3FT6CRIUEFsgdl0o6Aicbi4-0gZgNkczdwEAY74UyzJEVBl-s0pRyavO3d4yywdq_ZSvFkTRVsCdbOZ0LriaSdkNdJaeEo-C0rZlxqp_2tWpheckuBZTeZg2h3ndoGaJz-gH5xDRfdqBbaLfU_q7PoZlKjj7VMJGxmnvqDIibZ59M3iSGZJqmFvWbWfE3JaGnREld9lx
-    head:
-      author: K63.FTU LÊ THỊ THÙY LINH
-      time: '2026-10-31T07:31:23.060Z'
-      body: Thêm tên bà vào nhe
-      quote: (team member)
----
