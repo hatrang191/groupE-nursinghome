@@ -146,5 +146,5 @@ An action that cannot be traced is a missing FR. The IDs FR-06-09 to FR-06-11 ar
 | FR       | Function                        | Change                                                       |
 | :------- | :------------------------------ | :----------------------------------------------------------- |
 | FR-06-09 | Show radar status               | **New function (F-06, Must).** Covers A1, S2, S3, O1 and A2. |
-| FR-06-10 | Highlight Offline radars        | **New function (F-06, Should).** Covers D3 and S5.           |
+| FR-06-10 | Highlight Offline radars        | **New function (F-06, Could).** Covers D3 and S5.           |
 | FR-06-11 | Report radar status unavailable | **New function (F-06, Should).** Covers D2 and S4.           |
