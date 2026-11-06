@@ -1,5 +1,3 @@
-# AD-UC-08
-
 # Activity Diagram: AD-UC-08 View resident’s condition
 
 | Field | Value |
