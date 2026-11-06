@@ -2,13 +2,19 @@
 
 ## Inputs check
 
-| \# | Finding | Source to fix | Action | Owner | Status |
-| :---- | :---- | :---- | :---- | :---- | :---- |
-| 1 | Yes. | Context Diagram | No change. UC-06 is started by the Radar and has a 1-minute wait loop. UC-07 starts when the Alert changes state and has time-based retries. | Nguyen Ha Linh Trang | Done |
-|  | The Use Case Diagram shows “Send abnormal alert” (Radar) and “Mark false alert” (extend of Receive alert), and neither is in the index&nbsp; | Use Case Diagram&nbsp; | “Send abnormal alert” is the start of UC-06 (Radar lane), so no new use case. Add “Mark false alert” as a guarded branch in AD-UC-06, because an extend gets its own file only if it has decisions of its own&nbsp; | Nguyen Ha Linh Trang | Done |
-| 3 | The sequence for “Receive alert” told UC-06 (nurses) and UC-07 (family) together, and the Use Case Diagram shows one “Receive alert” for Nurse, Family and Radar&nbsp; | Sequence Diagrams, Use Case Diagram&nbsp; | Split into SD-UC-06 and SD-UC-07. Add UC-07 to the Use Case Diagram with Residents’ Family as primary actor&nbsp; | Integrator | Done |
-| 4 | In UC-09, who starts the message and whether the conversation continues are user choices&nbsp; | Sequence Diagrams | Moved both to the activity diagram (`d1` and `d2` in AD-UC-09). Keep `alt` in SD-UC-09 only for conditions of the interaction&nbsp; | Tran Le Bao An | Done |
-|  | In UC-11, the Admin’s choice to continue or cancel after errors was an `alt` in the sequence&nbsp; | Sequence Diagrams&nbsp; | Moved the choice to the activity diagram (`D3` in AD-UC-11). SD-UC-11 keeps `alt` only for system conditions (`D1`, `D2`, `D4`)&nbsp; | Le Thi Thuy Linh | Done |
+| # | Finding | Source to fix | Action | Owner | Status |
+|---|---|---|---|---|---|
+| 1 | Nurse receives and handles alerts but is not connected to any use case | Use Case Diagram | Renamed UC-06 to "Send and acknowledge alert" and connected both Radar and Nurse | | Open |
+| 2 | Browser push service sends notifications but was missing from the Context Diagram | Context Diagram | Added "Browser push service" as an external entity | | Open |
+| 3 | BOD flow is in the wrong direction: BOD only sends "view report", while the system → BOD direction says "(none)" | Context Diagram | Added "reports" in the system → BOD direction | | Open |
+| 4 | Nurse flows are missing alert data in both directions | Context Diagram | Added "alerts" (system → Nurse), "alert acknowledgement" and "alert closing" (Nurse → system) | | Open |
+| 5 | The "alert rules" flow from System admin has no matching use case | Context Diagram | Removed the "alert rules" flow | | Open |
+| 6 | Family sends "messages" for UC-09, but the Context Diagram only has "care requests" | Context Diagram | Unified the flow name as "messages" | | Open |
+| 7 | The flow name "audit logs" does not match UC-14 | Context Diagram | Renamed to "access and action logs" | | Open |
+| 8 | The flows "handover notes", "announcements" and "backup/restore" have no use case | Context Diagram | Removed these flows (out of scope) | | Open |
+| 9 | Family is only connected to Receptionist; the flows DH → Family (alerts, status) and Family → DH (messages, requests) are missing | CVCA | Added both flows | | Open |
+| 10 | The Context Diagram says "built from CVCA", but the CVCA has no Admin | CVCA | Added Admin inside the Nursing House box | | Open |
+| 11 | Names are inconsistent across the 3 files: Admin / System admin, Radar / Radar Monitoring System, Receptionist - Accountant / Receptionist | All 3 files | Use "Admin" in all 3 files; pick one name each for Radar and Receptionist; update the Change log to v2 | | Open |
 
 Use cases
 
@@ -19,7 +25,7 @@ Use cases
 | UC-03 | View resident's profile | F-01 | Must | not needed |  |  | Single display step (FR-01-03); no decision, no external system, no time trigger |
 | UC-04 | View condition history | F-02 | Should | not needed |  |  | Single display step (FR-02-03); no decision, no external system, no time trigger |
 | UC-05 | Update condition | F-02 | Must | `AD-UC-05.md` | Reviewed | Nguyen Tran Khanh Linh |  |
-| UC-06 | Send alert | F-03 | Must | `AD-UC-06.md` | Reviewed | Nguyen Ha Linh Trang |  |
+| UC-06 | Send and acknowledge alert | F-03 | Must | `AD-UC-06.md` | Reviewed | Nguyen Ha Linh Trang |  |
 | UC-07 | Receive alert notice | F-03 | Must | `AD-UC-07.md` | Reviewed | Nguyen Ha Linh Trang |  |
 | UC-08 | View resident's condition | F-02 | Must | `AD-UC-08.md` | Reviewed | Nguyen Tran Khanh Linh |  |
 | UC-09 | Exchange messages between family and nurses | F-04 | Must | `AD-UC-09.md` | Reviewed | Tran Le Bao An |  |
