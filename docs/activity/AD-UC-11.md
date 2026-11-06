@@ -181,6 +181,6 @@ An action that cannot be traced is a missing FR. These are the changes the UC-11
 | FR-06-05 | Link family account to resident                   | **New function (F-06, Must).** Covers A2, D2 and S3, and gives AD-UC-08 the link it needs for its access check.                                                                         |
 | FR-06-06 | Edit account information                          | **New function (F-06, Should).** Covers D4 \[Edit\], A4, D5 \[No\] and S5.                                                                                                              |
 | FR-06-07 | Deactivate account                                | **New function (F-06, Must).** Covers D4 \[Deactivate\], A5 and S7.                                                                                                                     |
-| FR-06-08 | Record account and role changes in the action log | **New function (F-06, Should).** Covers S6 here and S7 in AD-UC-12. Check first whether the UC-14 functions already cover it, to avoid a duplicate.                                     |
+| FR-06-08 | Record account and role changes in the action log | **New function (F-06, Should).** Covers S6 here and S7 in AD-UC-12.                                     |
 |          |                                                   |                                                                                                                                                                                         |
 
