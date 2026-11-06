@@ -4,17 +4,17 @@
 
 | # | Finding | Source to fix | Action | Owner | Status |
 |---|---|---|---|---|---|
-| 1 | Nurse receives and handles alerts but is not connected to any use case | Use Case Diagram | Renamed UC-06 to "Send and acknowledge alert" and connected both Radar and Nurse | | Open |
-| 2 | Browser push service sends notifications but was missing from the Context Diagram | Context Diagram | Added "Browser push service" as an external entity | | Open |
-| 3 | BOD flow is in the wrong direction: BOD only sends "view report", while the system → BOD direction says "(none)" | Context Diagram | Added "reports" in the system → BOD direction | | Open |
-| 4 | Nurse flows are missing alert data in both directions | Context Diagram | Added "alerts" (system → Nurse), "alert acknowledgement" and "alert closing" (Nurse → system) | | Open |
-| 5 | The "alert rules" flow from System admin has no matching use case | Context Diagram | Removed the "alert rules" flow | | Open |
-| 6 | Family sends "messages" for UC-09, but the Context Diagram only has "care requests" | Context Diagram | Unified the flow name as "messages" | | Open |
-| 7 | The flow name "audit logs" does not match UC-14 | Context Diagram | Renamed to "access and action logs" | | Open |
-| 8 | The flows "handover notes", "announcements" and "backup/restore" have no use case | Context Diagram | Removed these flows (out of scope) | | Open |
-| 9 | Family is only connected to Receptionist; the flows DH → Family (alerts, status) and Family → DH (messages, requests) are missing | CVCA | Added both flows | | Open |
-| 10 | The Context Diagram says "built from CVCA", but the CVCA has no Admin | CVCA | Added Admin inside the Nursing House box | | Open |
-| 11 | Names are inconsistent across the 3 files: Admin / System admin, Radar / Radar Monitoring System, Receptionist - Accountant / Receptionist | All 3 files | Use "Admin" in all 3 files; pick one name each for Radar and Receptionist; update the Change log to v2 | | Open |
+| 1 | Nurse receives and handles alerts but is not connected to any use case | Use Case Diagram | Renamed UC-06 to "Send and acknowledge alert" and connected both Radar and Nurse | Nguyen Ha Linh Trang | Done |
+| 2 | Browser push service sends notifications but was missing from the Context Diagram | Context Diagram | Added "Browser push service" as an external entity | Le Thi Thuy Linh | Done |
+| 3 | BOD flow is in the wrong direction: BOD only sends "view report", while the system → BOD direction says "(none)" | Context Diagram | Added "reports" in the system → BOD direction | Le Thi Thuy Linh | Done |
+| 4 | Nurse flows are missing alert data in both directions | Context Diagram | Added "alerts" (system → Nurse), "alert acknowledgement" and "alert closing" (Nurse → system) | Le Thi Thuy Linh | Done |
+| 5 | The "alert rules" flow from System admin has no matching use case | Context Diagram | Removed the "alert rules" flow | Nguyen Tran Khanh Linh | Done |
+| 6 | Family sends "messages" for UC-09, but the Context Diagram only has "care requests" | Context Diagram | Unified the flow name as "messages" | Nguyen Tran Khanh Linh | Done |
+| 7 | The flow name "audit logs" does not match UC-14 | Context Diagram | Renamed to "access and action logs" | Nguyen Tran Khanh Linh | Done |
+| 8 | The flows "handover notes", "announcements" and "backup/restore" have no use case | Context Diagram | Removed these flows (out of scope) | Nguyen Ha Linh Trang | Done |
+| 9 | Family is only connected to Receptionist; the flows DH → Family (alerts, status) and Family → DH (messages, requests) are missing | CVCA | Added both flows | Nguyen Ha Linh Trang | Done |
+| 10 | The Context Diagram says "built from CVCA", but the CVCA has no Admin | CVCA | Added Admin inside the Nursing House box | Le Ha Thanh | Done |
+| 11 | Names are inconsistent across the 3 files: Admin / System admin, Radar / Radar Monitoring System, Receptionist - Accountant / Receptionist | All 3 files | Use "Admin" in all 3 files; pick one name each for Radar and Receptionist; update the Change log to v2 | Le Ha Thanh | Done |
 
 Use cases
 
