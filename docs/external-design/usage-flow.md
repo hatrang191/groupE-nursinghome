@@ -8,41 +8,22 @@
 | Sources | W0 Table 1 (use case inventory); Use Case Diagram; `docs/activity/activity-index.md` |
 |         |                                                                                      |
 
-## Receptionist: create a new resident profile
+## Receptionist: manage resident profile
 
-  
-
-``` mermaid
-
+```mermaid
 flowchart LR
-
-  A(["Receptionist needs to register a new resident"]) --> U1["UC-01: Create new resident profile"]
-
-  U1 --> Z(["New resident profile is created"])
-
+  A(["Receptionist needs to register a new resident or keep a resident's information up to date"]) --> D{"Is the resident new?"}
+  D -->|"Yes"| U1["UC-01: Create new resident profile"]
+  D -->|"No"| U2["UC-02: Update resident information"]
+  U1 --> Z(["The resident's profile is correct in the system"])
+  U2 --> Z
 ```
 
-| Step | Use case                          | Activity diagram | Screens |
-| ---- | --------------------------------- | ---------------- | ------- |
-| 1    | UC-01 Create new resident profile | ``AD-UC-01.md``  |         |
+| Step | Use case                           | Activity diagram | Screens |
+| ---- | ---------------------------------- | ---------------- | ------- |
+| 1    | UC-01 Create new resident profile  | `AD-UC-01.md`    |         |
+| 2    | UC-02 Update resident information  | `AD-UC-02(1).md` |         |
 
-## Receptionist: update resident information
-
-  
-
-``` mermaid
-
-flowchart LR
-
-  A(["Receptionist needs to update an existing resident's information"]) --> U1["UC-02: Update resident information"]
-
-  U1 --> Z(["Resident information is updated"])
-
-```
-
-| Step | Use case                          | Activity diagram   | Screens |
-| ---- | --------------------------------- | ------------------ | ------- |
-| 1    | UC-02 Update resident information | ``AD-UC-02(1).md`` |         |
 ## Nurse: keep a resident's condition up to date
 
   
@@ -92,37 +73,22 @@ flowchart LR
 | 2    | UC-04 View condition history                      | `not needed`     |         |
 | 3    | UC-09 Exchange messages between family and nurses | `AD-UC-09.md`    |         |
 
-## Residents' Family: know how a resident is
+## Residents' Family: stay informed about a resident
 
 ```mermaid
 flowchart LR
- A(["Family wants news about a resident, or got an alert notice"]) --> U8["UC-08 View resident's condition"]
- U8 --> Z(["Family knows the current condition of the resident"])
+  A(["Family wants news about a resident, or has a question or concern"]) --> U8["UC-08: View resident's condition"]
+  U8 --> D{"Does the family want to talk to the nurses?"}
+  D -->|"Yes"| U9["UC-09: Exchange messages between family and nurses"]
+  U9 --> Z(["The family knows how the resident is and any question is with the nurses"])
+  D -->|"No"| Z
 ```
 
-|   |   |   |   |
-|---|---|---|---|
-|Step|Use case|Activity diagram|Screens|
-|1|UC-08 View resident's condition|AD-UC-08.md|TBD: no screen-list.md yet|
+| Step | Use case                                           | Activity diagram | Screens                    |
+| ---- | -------------------------------------------------- | ---------------- | -------------------------- |
+| 1    | UC-08 View resident's condition                    | `AD-UC-08.md`    | TBD: no screen-list.md yet |
+| 2    | UC-09 Exchange messages between family and nurses  | `AD-UC-09.md`    | TBD: no screen-list.md yet |
 
-## Residents' Family: talk to the nurses about a resident
-
-```mermaid
-flowchart LR
- A(["Family has a question or concern about a resident"]) --> U8["UC-08 View resident's condition"]
- U8 --> U9["UC-09 Exchange messages between family and nurses"]
- U9 --> Z(["Message is in the conversation with the nurses"])
-```
-
-|   |   |   |   |
-|---|---|---|---|
-|Step|Use case|Activity diagram|Screens|
-|1|UC-08 View resident's condition|AD-UC-08.md|TBD: no screen-list.md yet|
-|2|UC-09 Exchange messages between family and nurses|AD-UC-09.md|TBD: no screen-list.md yet|
-
-
-
-**
 
 ## BOD: see how the nursing home is running
 
@@ -136,33 +102,25 @@ flowchart LR
 | ---- | ------------------ | ---------------- | ------- |
 | 1    | UC-10 View reports | `not needed`     |         |
 
-## Admin: give a new user access
+## Admin: manage account access
 
 ```mermaid
 flowchart LR
-  A(["A new staff member or family member needs to use the system"]) --> U1["UC-11: Set up accounts"]
-  U1 --> U2["UC-12: Assign role-based permissions"]
-  U2 --> Z(["The new user has an account with the right role and permissions"])
+  A(["Admin needs to give, change or withdraw someone's access, or suspects misuse"]) --> D1{"What is the situation?"}
+  D1 -->|"A new user, or a user changes position"| U1["UC-11: Set up accounts"]
+  D1 -->|"Misuse is suspected"| U3["UC-14: View access and action logs"]
+  U1 --> D2{"Does the user need a new role?"}
+  D2 -->|"Yes"| U2["UC-12: Assign role-based permissions"]
+  D2 -->|"No"| Z(["Each person's access matches what they are allowed to do"])
+  U3 --> U2
+  U2 --> Z
 ```
 
 | Step | Use case                            | Activity diagram | Screens (fill in after Block 2) |
 | ---- | ----------------------------------- | ---------------- | ------------------------------- |
 | 1    | UC-11 Set up accounts               | `AD-UC-11.md`    |                                 |
-| 2    | UC-12 Assign role-based permissions | `AD-UC-12.md`    |                                 |
-
-## Admin: correct permissions after irregular activity
-
-```mermaid
-flowchart LR
-  A(["Admin suspects that someone uses the system in a way they should not"]) --> U1["UC-14: View access and action logs"]
-  U1 --> U2["UC-12: Assign role-based permissions"]
-  U2 --> Z(["Permissions match what each person is allowed to do"])
-```
-
-| Step | Use case                            | Activity diagram | Screens (fill in after Block 2) |
-| ---- | ----------------------------------- | ---------------- | ------------------------------- |
-| 1    | UC-14 View access and action logs   | `not needed`     |                                 |
-| 2    | UC-12 Assign role-based permissions | `AD-UC-12.md`    |                                 |
+| 2    | UC-14 View access and action logs   | `not needed`     |                                 |
+| 3    | UC-12 Assign role-based permissions | `AD-UC-12.md`    |                                 |
 
 ## Admin: keep the radar working
 
@@ -177,24 +135,6 @@ flowchart LR
 | ---- | --------------------------------- | ---------------- | ------------------------------- |
 | 1    | UC-13 Monitor radar status        | `AD-UC-13.md`    |                                 |
 | 2    | UC-14 View access and action logs | `not needed`     |                                 |
-
-## Admin: withdraw or change access when staff leave or change position
-
-```mermaid
-flowchart LR
-  A(["A staff member leaves or changes position"]) --> U1["UC-11: Set up accounts"]
-  U1 --> D{"Does the person keep working in a new position?"}
-  D -->|"Yes"| U2["UC-12: Assign role-based permissions"]
-  D -->|"No"| U3["UC-14: View access and action logs"]
-  U2 --> U3
-  U3 --> Z(["Access matches the person's current position and has been checked"])
-```
-
-| Step | Use case                                                                                 | Activity diagram | Screens (fill in after Block 2) |
-| ---- | ---------------------------------------------------------------------------------------- | ---------------- | ------------------------------- |
-| 1    | UC-11 Set up accounts (edit the account, or deactivate it when the person leaves)        | `AD-UC-11.md`    |                                 |
-| 2    | UC-12 Assign role-based permissions (only if the person keeps working in a new position) | `AD-UC-12.md`    |                                 |
-| 3    | UC-14 View access and action logs                                                        | `not needed`     |                                 |
 
 
 ## Use cases without a flow
