@@ -1,4 +1,4 @@
-# Activity Diagram Index: Dien Hong nursing home system
+# Activity Diagram Index: Dien Hong System
 
 ## Inputs check
 
