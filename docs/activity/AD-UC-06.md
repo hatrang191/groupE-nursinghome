@@ -1,11 +1,11 @@
-# Activity Diagram: AD-UC-06 Send alert
+# Activity Diagram: AD-UC-06 Send and acknowledge alert
 
 | Field | Value |
 |---|---|
 | AD ID | `AD-UC-06` |
-| Use case | `UC-06 Send alert` |
+| Use case | `UC-06 Send and acknowledge alert` |
 | Feature | `F-03 Abnormal Alert Handling` |
-| Primary actor | Radar |
+| Primary actor | Radar, Nurse|
 | Lanes | Radar · Dien Hong System (our system, one lane) · Nurse |
 | Inputs (L3-L5) | Context Diagram v[n] (Radar) · Use Case Diagram v[n] · Sequence: `SD-UC-06` · Architecture/ADR [n] · W1 rows FR-03-01 to FR-03-06 |
 | Trigger | The Radar detects an abnormal event of a resident and the app receives it |
