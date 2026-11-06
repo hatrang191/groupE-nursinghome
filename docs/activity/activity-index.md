@@ -19,7 +19,7 @@ Use cases
 | UC-03 | View resident's profile | F-01 | Must | not needed |  |  | Single display step (FR-01-03); no decision, no external system, no time trigger |
 | UC-04 | View condition history | F-02 | Should | not needed |  |  | Single display step (FR-02-03); no decision, no external system, no time trigger |
 | UC-05 | Update condition | F-02 | Must | `AD-UC-05.md` | Reviewed | Nguyen Tran Khanh Linh |  |
-| UC-06 | Receive alert | F-03 | Must | `AD-UC-06.md` | Reviewed | Nguyen Ha Linh Trang |  |
+| UC-06 | Send alert | F-03 | Must | `AD-UC-06.md` | Reviewed | Nguyen Ha Linh Trang |  |
 | UC-07 | Receive alert notice | F-03 | Must | `AD-UC-07.md` | Reviewed | Nguyen Ha Linh Trang |  |
 | UC-08 | View resident's condition | F-02 | Must | `AD-UC-08.md` | Reviewed | Nguyen Tran Khanh Linh |  |
 | UC-09 | Exchange messages between family and nurses | F-04 | Must | `AD-UC-09.md` | Reviewed | Tran Le Bao An |  |
