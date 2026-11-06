@@ -6,7 +6,7 @@ the system is designed, to find the problems and opportunities.
 
 | Field | Value |
 |---|---|
-| Version | v1.0 |
+| Version | v1.1 |
 | Next | [Context Diagram](context-diagram.md) |
 
 ## 1. Value chain (with the new system)
@@ -22,7 +22,8 @@ flowchart LR
 
   subgraph NH["Dien Hong Nursing House"]
     BOD["Dien Hong Nursing House - BOD"]
-    REC["Receptionist - Accountant"]
+    REC["Receptionist<br>(also Accountant)"]
+    ADM["Admin"]
     DH(["Dien Hong system"])
     NUR["Nurse"]
     RES["Residents"]
@@ -37,10 +38,13 @@ flowchart LR
   FAM -->|"!"| REC
   RES -->|"!"| REC
   REC -->|"!"| DH
+  ADM -->|"!"| DH
   RAD -->|"!"| DH
   DH -->|"!"| BOD
   DH -->|"!"| NUR
   NUR -->|"!"| DH
+  DH -->|"!"| FAM
+  FAM -->|"!"| DH
   NUR -->|"care service"| RES
   EXT -->|"service"| RES
 ```
@@ -49,6 +53,13 @@ flowchart LR
 
 | Symbol | Meaning |
 |---|---|
-| `!` | Resident information, care updates, task status, request, bookings |
+| `!` | Resident information, condition updates, alerts, messages, reports, accounts |
 | `$` | Money |
 | Service | Care service, policy |
+
+## Change log
+
+| Version | Change | Why |
+|---|---|---|
+| v1.0 | First version | |
+| v1.1 | Added the flows between the system and the Residents' Family (alerts and condition to the family, messages from the family); added Admin; renamed the Receptionist label; changed the legend | The family is the main receiver of the new system's information, and the Context Diagram needs the Admin |
