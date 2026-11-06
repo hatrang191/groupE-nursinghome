@@ -11,7 +11,7 @@ Lesson 5 (Function List workshop, block W0). Inputs: [CVCA](../context/cvca.md),
 | UC-03       | View resident's profile                     | Nurse                    | F-01             | Yes            | Must     |
 | UC-04       | View condition history                      | Nurse                    | F-02             | Yes            | Should   |
 | UC-05       | Update condition                            | Nurse                    | F-02             | Yes            | Must     |
-| UC-06       | Send alert                                  | Radar                    | F-03             | No             | Must     |
+| UC-06       | Send and acknowledge alert                  | Radar                    | F-03             | No             | Must     |
 | UC-07       | Receive alert notice                        | Residents' Family        | F-03             | Yes            | Must     |
 | UC-08       | View resident's condition                   | Residents' Family        | F-02             | Yes            | Must     |
 | UC-09       | Exchange messages between family and nurses | Nurse, Residents' Family | F-04             | Yes            | Must     |
@@ -21,7 +21,7 @@ Lesson 5 (Function List workshop, block W0). Inputs: [CVCA](../context/cvca.md),
 | UC-13       | Monitor radar status                        | Admin                    | F-06             | Yes            | Should   |
 | UC-14       | View access and action logs                 | Admin                    | F-06             | Yes            | Could    |
 
-UC-07 was added after the Lesson 7 Inputs check (see [activity-index](../activity/activity-index.md), row ).
+UC-07 was added after the Lesson 7 Inputs check (see [activity-index](../activity/activity-index.md)).
 
 ## Table 2. Feature list (flows into W1)
 
