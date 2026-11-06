@@ -6,8 +6,8 @@ inside the system boundary. In a drawing tool use the UML notation (stick figure
 
 | Field | Value |
 |---|---|
-| Version | v1 |
-| Actors | Receptionist, Nurse, Residents' Family, BOD, Admin (primary, human); Radar (primary, device, starts UC-06) |
+| Version | v2 |
+| Actors | Receptionist, Nurse, Residents' Family, BOD, Admin (primary, human); Radar (primary, device, starts UC-06; the Nurse acknowledges the alert) |
 
 ## Diagram
 
@@ -25,7 +25,7 @@ flowchart LR
     UC03(["UC-03 View resident's profile"])
     UC04(["UC-04 View condition history"])
     UC05(["UC-05 Update condition"])
-    UC06(["UC-06 Send alert"])
+    UC06(["UC-06 Send and acknowledge alert"])
     UC07(["UC-07 Receive alert notice"])
     UC08(["UC-08 View resident's condition"])
     UC09(["UC-09 Exchange messages between family and nurses"])
@@ -40,6 +40,7 @@ flowchart LR
   NUR --- UC03
   NUR --- UC04
   NUR --- UC05
+  NUR --- UC06
   NUR --- UC09
   RAD --- UC06
   FAM --- UC07
@@ -52,6 +53,10 @@ flowchart LR
   ADM --- UC14
 ```
 
+UC-06 covers the whole life of an alert: the Radar starts it, the system notifies the Nurse,
+the Nurse acknowledges and closes it, and the system notifies the Nurse again when nobody
+acknowledges within 1 minute (this timed step is started by the Scheduler, not by a person).
+
 The full use case inventory, with features and login rules, is W0 Table 1 in
 [w0-scope.md](../function-list/w0-scope.md).
 
@@ -59,8 +64,9 @@ The full use case inventory, with features and login rules, is W0 Table 1 in
 
 One sequence diagram per use case, at analysis level: the lifelines are the elements of the
 [physical design](../architecture/architecture.md): Web App (user interface), API Server,
-Database, Radar Gateway (receives data from the radar device) and Notification Service
-(pushes alerts to the family).
+Database, Radar Gateway (receives data from the radar device), Notification Service (sends
+alerts to the Nurse and the family), Scheduler (starts the timed step of UC-06) and Browser push
+service (external, delivers the push notice to the phone).
 
 Assumption for every use case with "Login required = Yes": the user has already logged in and
 the API Server checks the session token and the role-based permission on every request.
@@ -72,7 +78,7 @@ the API Server checks the session token and the role-based permission on every r
 | UC-03 View resident's profile | [SD-UC-03](#sd-uc-03-view-residents-profile) | Draft |
 | UC-04 View condition history | [SD-UC-04](#sd-uc-04-view-condition-history) | Draft |
 | UC-05 Update condition | [SD-UC-05](#sd-uc-05-update-condition) | Draft |
-| UC-06 Send alert | [SD-UC-06](#sd-uc-06-send-alert) | Draft |
+| UC-06 Send and acknowledge alert | [SD-UC-06](#sd-uc-06-send-and-acknowledge-alert) | Draft |
 | UC-07 Receive alert notice | [SD-UC-07](#sd-uc-07-receive-alert-notice) | Draft |
 | UC-08 View resident's condition | [SD-UC-08](#sd-uc-08-view-residents-condition) | Draft |
 | UC-09 Exchange messages between family and nurses | [SD-UC-09](#sd-uc-09-exchange-messages-between-family-and-nurses) | Done |
@@ -87,3 +93,4 @@ the API Server checks the session token and the role-based permission on every r
 | Version | When | Change | Why |
 |---|---|---|---|
 | v1 | Initial | Fourteen use cases (UC-01 to UC-14), actors Receptionist, Nurse, Residents' Family, BOD, Admin and Radar | First version based on W0 Table 1 |
+| v2 | Lesson 7 | UC-06 renamed "Send and acknowledge alert"; Nurse added as an actor of UC-06; Scheduler and Browser push service added to the lifelines | The Nurse had no use case for the alert, and the 1-minute escalation rule and the push notice need these elements (ADR-004, ADR-005) |
