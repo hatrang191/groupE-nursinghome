@@ -9,11 +9,6 @@
 
   Date                                2026-11-06
 
-  Sources                             Use Case Diagram; `AD-UC-01.md`;
-                                      `AD-UC-02(1).md`;
-                                      `usage-flow-template(1).md`
-  -----------------------------------------------------------------------
-
 ## Before you draw: is Lesson 4 still true?
 
 -   [ ] Every row of the Inputs check table at the top of
