@@ -203,3 +203,19 @@ flowchart LR
 | -------- | ---------- | ------------- |
 | UC-06    | Radar      | `AD-UC-06.md` |
 | UC-07    | Radar      | `AD-UC-07.md` |
+
+## Checks before you save
+
+- [x] Every actor that starts a use case has at least one flow.
+- [x] An actor with clearly different goals has one flow per goal; no flow has more than about
+      9 boxes.
+- [x] Every actor name matches the Use Case Diagram and the Context Diagram.
+- [x] Coverage: every in-scope use case of W0 Table 1 (Must, Should, Could) that a person starts
+      appears in at least one flow, with the same ID and name. A use case may appear in several
+      flows. Use cases started by time or an external system are listed under "Use cases without
+      a flow". Won't-have use cases appear nowhere.
+- [x] No box is a click or a screen; no box tells two use cases.
+- [x] Every flow renders on mermaid.live.
+- [ ] After Block 2: every step has at least one screen, and every screen in the screen list
+      appears in some step.
+
