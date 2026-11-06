@@ -126,4 +126,4 @@ Proposed FRs that are not yet in W1:
 
 | FR       | Function                                          | Change                                                             |
 | :------- | :------------------------------------------------ | :----------------------------------------------------------------- |
-| FR-06-08 | Record account and role changes in the action log | **New function (F-06, Must).** Covers S7 here and S6 in AD-UC-11.  |
+| FR-06-08 | Record account and role changes in the action log | **New function (F-06, Should).** Covers S7 here and S6 in AD-UC-11.  |
