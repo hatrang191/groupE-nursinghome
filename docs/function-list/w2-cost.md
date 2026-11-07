@@ -112,4 +112,4 @@ Three observations the team carries into W4:
 
 1. Must sits at 59% of the effort, close to the 60% line; any new Must needs a Must to move down. In-scope effort leaves only 4.0 p-h of the 240 p-h capacity.
 2. Abnormal Alert Handling (F-03) carries 39% of the in-scope effort and all three Must integrations (FR-03-01-INT, FR-03-08-INT, FR-03-09-INT); it is the main delivery risk and starts first in DBIZ3.
-3. Families can see their relative's condition from day one: FR-04-01 and FR-04-02 are Must. To keep Must under 60%, viewing the full resident profile (FR-01-03) moved to Should, so F-01 keeps one Must row (FR-01-01).
+3. Families can see their relative's condition from day one: FR-04-01 and FR-04-02 are Must. To keep Must under 60%, viewing the full resident profile (FR-01-03) moved to Should (nurses still see the resident's name and room on the condition and alert screens; the full profile page is important but not release-blocking), so F-01 keeps one Must row (FR-01-01).
