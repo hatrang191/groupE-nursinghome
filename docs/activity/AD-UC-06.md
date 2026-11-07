@@ -7,9 +7,9 @@
 | Feature | `F-03 Abnormal Alert Handling` |
 | Primary actor | Radar, Nurse|
 | Lanes | Radar · Dien Hong System (our system, one lane) · Nurse |
-| Inputs (L3-L5) | Context Diagram v[n] (Radar) · Use Case Diagram v[n] · Sequence: `SD-UC-06` · Architecture/ADR [n] · W1 rows FR-03-01 to FR-03-06 |
+| Inputs (L3-L5) | Context Diagram v[n] (Radar) · Use Case Diagram v[n] · Sequence: `SD-UC-06` · Architecture/ADR [n] · W1 rows FR-03-01 to FR-03-08. |
 | Trigger | The Radar detects an abnormal event of a resident and sends it |
-| Preconditions | Dien Hong System is running 24/7 and is connected to the radar feed (NFR-01). Nurses are logged in on the web. |
+| Preconditions | Dien Hong System is running 24/7 and is connected to the radar feed (FR-03-08). NNurses are signed in (FR-00-01). |
 | Success end state | One `Alert` in state `Closed` exists with the outcome recorded. |
 | Failure end state(s) | The alert is still not acknowledged 1 minute after the third notice. The failure of this alert is logged and the alert stays `Escalated`. |
 | FRs covered | `FR-03-01`, `FR-03-02`, `FR-03-03`, `FR-03-04`, `FR-03-05`, `FR-03-06` |
@@ -74,7 +74,7 @@ Reading notes:
   The diagram shows the system looking at the result after the minute, then recording it (`s4`).
 - Decisions `d1` and `d3` have no question: their guards say it. The time expression is on the arrow
   going out of `t1`, as the profile asks.
-- All FRs of this use case are **Must**. The diagram has 19 nodes.
+- FR-03-05 is **Could**, FR-03-07 is **Should**, the rest are **Must**.. The diagram has 19 nodes.
 
 ## 2. Node trace
 
@@ -170,11 +170,11 @@ function table.
 | FR | Function | Change |
 |---|---|---|
 | FR-03-01 | Receive abnormal alert from radar | **Change**: store the resident too and set status New. Needs room and resident data from F-01 |
-| FR-03-02 | Receive alert (web) | **Change** the UC column: the old UC-07 (Receive alert, web) becomes UC-06 |
+| FR-03-02 | Receive alert (nurse) | **Change** the UC column: the old UC-07 (Receive alert, web) becomes UC-06 |
 | FR-03-03 | Acknowledge alert | **New**, Must: "WHEN a nurse acknowledges an alert, the system SHALL set its status to Acknowledged and show the nurse name to the other nurses" |
 | FR-03-04 | Notify nurses again when nobody acknowledges | **New**, Must: "IF 1 minute after a notice the alert is still not acknowledged and fewer than 3 notices were sent, the system SHALL set its status to Escalated and notify the nurses again" |
 | FR-03-05 | Log failed alert | **New**, Must: "IF an alert is still not acknowledged 1 minute after the third notice, the system SHALL log the failure of that alert" |
 | FR-03-06 | Close alert with outcome | **New**, Must: "WHEN a nurse reports the outcome of an alert, the system SHALL record it and set the status to Closed" |
 | FR-03-07 | Group repeated radar events | **New**, Should. Not in this version of the diagram |
-| FR-03-08 | Receive alert (mobile app), the old FR-03-03 | **Moves to UC-07** and is renumbered (see `AD-UC-07.md`) |
-| NFR-01 | Always on | **New**, Must: "The system SHALL run 24/7 and keep the connection to the radar feed" |
+| FR-03-09 | Receive alert notice (family), the old FR-03-03 | **Moves to UC-07** and is renumbered (see `AD-UC-07.md`) |
+| FR-03-08 | Always on | **New**, Must: "The system SHALL run 24/7 and keep the connection to the radar feed" |
