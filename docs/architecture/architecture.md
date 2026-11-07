@@ -16,7 +16,7 @@ Decisions are recorded as ADRs in [`adr/`](adr/).
 | SyR-01 | The system shall let the Receptionist create a resident profile and update resident information. | UC-01, UC-02 |
 | SyR-02 | The system shall let a Nurse view a resident's profile and condition history. | UC-03, UC-04 |
 | SyR-03 | The system shall let a Nurse record a resident's condition. | UC-05 |
-| SyR-04 | The system shall receive monitoring signals from the radar, create an alert when a signal is abnormal according to the alert rules (fixed in the system), and notify the Nurse. | UC-06 |
+| SyR-04 | The system shall receive abnormal events from the radar (its built-in AI decides what is abnormal), create an alert and notify the Nurse. | UC-06 |
 | SyR-05 | The system shall notify the Nurse again when an alert is not acknowledged within 1 minute, and shall record a failure when it is still not acknowledged after the 3rd notice. | UC-06 |
 | SyR-06 | The system shall send the Residents' Family one notice when an alert is dangerous and one more when the alert is closed. | UC-07 |
 | SyR-07 | The system shall let the Residents' Family view the current condition of their resident. | UC-08 |
@@ -38,7 +38,7 @@ least one function, and every function serves at least one requirement.
 | Identify the user and check the role permission | all |
 | Save, update and show resident profiles | SyR-01, SyR-02 |
 | Save and list the condition of a resident | SyR-02, SyR-03, SyR-07 |
-| Receive radar signals and show radar device status | SyR-04, SyR-11 |
+| Receive abnormal events and check radar connections | SyR-04, SyR-11 |
 | Create an alert from an abnormal signal | SyR-04 |
 | Time the 1-minute wait, escalate, and record a failure after the 3rd notice | SyR-05 |
 | Send push notices to the Nurse and the family | SyR-04, SyR-05, SyR-06 |
