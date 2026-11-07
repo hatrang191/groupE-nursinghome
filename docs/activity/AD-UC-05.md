@@ -1,5 +1,3 @@
-# AD-UC-05
-
 # Activity Diagram: AD-UC-05 Update condition
 
 | Field | Value |
