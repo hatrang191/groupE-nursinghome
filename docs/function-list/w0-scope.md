@@ -14,11 +14,11 @@ Lesson 5 (Function List workshop, block W0). Inputs: [CVCA](../context/cvca.md),
 | UC-06       | Send and acknowledge alert                  | Radar                    | F-03             | No             | Must     |
 | UC-07       | Receive alert notice                        | Residents' Family        | F-03             | Yes            | Must     |
 | UC-08       | View resident's condition                   | Residents' Family        | F-04             | Yes            | Should     |
-| UC-09       | Exchange messages between family and nurses | Nurse, Residents' Family | F-04             | Yes            | Must     |
+| UC-09       | Exchange messages between family and nurses | Nurse, Residents' Family | F-04             | Yes            | Should     |
 | UC-10       | View reports                                | BOD                      | F-05             | Yes            | Could    |
 | UC-11       | Set up accounts                             | Admin                    | F-06             | Yes            | Must     |
 | UC-12       | Assign role-based permissions               | Admin                    | F-06             | Yes            | Must     |
-| UC-13       | Monitor radar status                        | Admin                    | F-06             | Yes            | Should   |
+| UC-13       | Monitor radar status                        | Admin                    | F-06             | Yes            | Could   |
 | UC-14       | View access and action logs                 | Admin                    | F-06             | Yes            | Could    |
 
 UC-07 was added after the Lesson 7 Inputs check (see [activity-index](../activity/activity-index.md)).
@@ -27,6 +27,7 @@ UC-07 was added after the Lesson 7 Inputs check (see [activity-index](../activit
 
 | Feature ID | Feature name (business noun) | Scope in one sentence | Primary actors served | Owner | Use cases covered |
 |------------|------------------------------|-----------------------|-----------------------|-------|-------------------|
+| F-00 | Platform and Access | Every user signs in with their own account and reaches only the screens of their role. | Receptionist, Nurse, BOD, Admin, Residents’ Family | Nguyễn Trần Khánh Linh | none (platform function) |
 | F-01 | Resident Profile Management | Staff create, update and view resident profiles so every resident has accurate, up-to-date basic information. | Receptionist, Nurse | Nguyễn Thị Trúc Anh | UC-01, UC-02, UC-03 |
 | F-02 | Condition Tracking | Nurses record each resident's condition and review its history over time. | Nurse | Nguyễn Hà Linh Trang | UC-04, UC-05, UC-08 |
 | F-03 | Abnormal Alert Handling | The radar system detects abnormal events and sends alerts that nurses and families receive immediately. | Radar, Nurse, Residents' Family | Lê Hà Thanh | UC-06, UC-07 |
