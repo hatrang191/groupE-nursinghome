@@ -7,7 +7,7 @@
 | Feature | `F-02 Condition Tracking` |
 | Primary actor | Nurse |
 | Lanes | Nurse · Dien Hong system |
-| Inputs (L3-L5) | Context Diagram (Nurses ↔︎ Dien Hong system: Daily condition updates, shift handover notes, updates for family) · Use Case Diagram (UC-05, Nurse) · W1 rows FR-02-01-BE “Validate condition”, FR-02-02-FE, FR-02-02-BE “Update condition”, FR-02-03-BE “Keep condition history” |
+| Inputs (L3-L5) | Context Diagram (Nurses ↔︎ Dien Hong system: Daily condition updates) · Use Case Diagram (UC-05, Nurse) · W1 rows FR-02-01-BE “Validate condition”, FR-02-02-FE, FR-02-02-BE “Update condition”, FR-02-03-BE “Keep condition history” |
 | Trigger | The nurse selects or enters a resident’s condition and saves it (FR-02-02) |
 | Preconditions | The nurse is signed in and their role allows updating conditions (FR-06-03). The resident already has a profile (UC-01). |
 | Success end state | One new condition record, in state Saved, is stored for the resident with the time and the nurse’s name. Every earlier condition record of that resident is unchanged. |
