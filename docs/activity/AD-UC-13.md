@@ -59,7 +59,7 @@ Reading notes:
 - `M1` is a **merge** node. The branch through S5 (some radar is Offline) and the branch D3 \[No\] (all radars are Online) both enter `M1` before the radar status is displayed.
 - `M2` is a **merge** node. The three ending paths (S1 → O2 rejection, S4 → O3 status unavailable and A2 success) are joined before the final node.
 - `O1`, `O2` and `O3` are **object nodes** for the object `Radar status`. After the status is shown it is `Displayed` (O1). After S1 rejects the request it is `Rejected` (O2). After S4 reports that it cannot be obtained it is `Unavailable` (O3).
-- This use case only **reads** the status. This use case only reads the status. The radar only sends abnormal events (UC-06), so the Radar Gateway actively checks each radar’s connection at a fixed interval and keeps the time of the last successful check (FR-06-09-INT). S2 reads that result, so no radar lane is needed here.
+- This use case only **reads** the status. The radar only sends abnormal events (UC-06), so the Radar Gateway actively checks each radar’s connection at a fixed interval and keeps the time of the last successful check (FR-06-09-INT). S2 reads that result, so no radar lane is needed here.
 - After a radar is highlighted as Offline, the Admin can continue with UC-14 to look for the cause. 
 - This diagram has no parallel behaviour, so it has no fork and no join.
 
