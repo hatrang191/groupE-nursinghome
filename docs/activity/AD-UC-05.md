@@ -111,7 +111,7 @@ An action that cannot be traced is a missing FR. These are the changes the UC-05
 
 | FR | Function | Change |
 | --- | --- | --- |
-| FR-02-01 | Validate condition | New function, answering open question #1, #2. EARS criterion: “IIF a nurse saves a condition that is invalid, such as a blank condition, THEN the system SHALL reject the save, leave earlier records unchanged, tell the nurse why, and let the nurse correct the condition and save it again.” This covers `d1`, `s0` and `a3`. |
+| FR-02-01 | Validate condition | New function, answering open question #1, #2. EARS criterion: “IF a nurse saves a condition that is invalid, such as a blank condition, THEN the system SHALL reject the save, leave earlier records unchanged, tell the nurse why, and let the nurse correct the condition and save it again.” This covers `d1`, `s0` and `a3`. |
 | FR-02-02 | Update condition | **Change** the EARS criterion: “WHEN a nurse selects an existing resident, enters the resident’s condition and saves, the system SHALL store it for that resident with the time and the nurse’s name.” This covers `a1` and `s1`. |
 | FR-02-03 | Keep condition history | No change. |
 
