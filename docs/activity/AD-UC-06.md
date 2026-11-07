@@ -74,7 +74,7 @@ Reading notes:
   The diagram shows the system looking at the result after the minute, then recording it (`s4`).
 - Decisions `d1` and `d3` have no question: their guards say it. The time expression is on the arrow
   going out of `t1`, as the profile asks.
-- FR-03-05 is **Could**, FR-03-07 is **Should**, the rest are **Must**.. The diagram has 19 nodes.
+- FR-03-05 is **Could**, FR-03-07 is **Should**, the rest are **Must**. The diagram has 19 nodes.
 
 ## 2. Node trace
 
