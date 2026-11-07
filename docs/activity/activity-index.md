@@ -32,7 +32,7 @@ Use cases
 | UC-10 | View reports | F-05 | Could | not needed |  |  | This is a query and display operation, with no IF statements. |
 | UC-11 | Set up accounts | F-06 | Must | `AD-UC-11.md` | Reviewed | Le Thi Thuy Linh |  |
 | UC-12 | Assign role-based permissions | F-06 | Must | `AD-UC-12.md` | Reviewed | Le Thi Thuy Linh |  |
-| UC-13 | Monitor radar status | F-06 | Could | `AD-UC-13.md` | Reviewd | Le Thi Thuy Linh |  |
+| UC-13 | Monitor radar status | F-06 | Could | `AD-UC-13.md` | Reviewed | Le Thi Thuy Linh |  |
 | UC-14 | View access and action logs | F-06 | Could | not needed |  |  | This is a query and display operation, with no IF statements. |
 
 Selection basis for the use cases that get a diagram:
