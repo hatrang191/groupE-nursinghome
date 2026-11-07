@@ -5,7 +5,7 @@ exchanges data with. The Context Diagram answers "what does the system interact 
 
 | Field | Value |
 |---|---|
-| Version | v2 |
+| Version | v3 |
 | Built from | [CVCA](cvca.md): every stakeholder that exchanges information with the Dien Hong system; checked against the [Use Case Diagram](../use-case/use-case-diagram.md) |
 
 ## Diagram
@@ -34,14 +34,16 @@ flowchart LR
 
   RAD -->|"monitoring signals, device status"| DH
 
-  NUR -->|"condition updates, alert acknowledgements, messages"| DH
+  NUR -->|"condition updates, alert acknowledgements, alert closure outcomes, messages"| DH
   DH -->|"resident profiles, condition history, alerts, messages"| NUR
 
   DH -->|"push notices"| PUSH
 ```
 
 The push notices for the Nurse and the family travel through the Browser push service to the
-Web App on their phones.
+Web App on their phones. When a Nurse handles an alert, the Nurse sends the closure outcome to
+the Dien Hong system; the system records it and closes the alert before sending a closure notice
+to the family (if the first notice was sent).
 
 ## Data crossing the boundary
 
@@ -52,7 +54,7 @@ Web App on their phones.
 | Admin | User accounts, role permissions | Radar device status, access and action logs | UC-11, UC-12, UC-13, UC-14 |
 | Residents' Family | Messages | Current condition, alert notices, messages | UC-07, UC-08, UC-09 |
 | Radar | Monitoring signals, device status | (none) | UC-06, UC-13 |
-| Nurse | Condition updates, alert acknowledgements, messages | Resident profiles, condition history, alerts, messages | UC-03, UC-04, UC-05, UC-06, UC-09 |
+| Nurse | Condition updates, alert acknowledgements, alert closure outcomes, messages | Resident profiles, condition history, alerts, messages | UC-03, UC-04, UC-05, UC-06, UC-09 |
 | Browser push service | (none) | Push notices | UC-06, UC-07 |
 
 ## Change log
@@ -60,4 +62,5 @@ Web App on their phones.
 | Version | Change | Why |
 |---|---|---|
 | v1 | First version: BOD, Receptionist, System admin, Residents' Family, Radar Monitoring System, Nurses | |
-| v2 | Added Browser push service; removed the "alert rules" flow from the Admin (alert rules are fixed in the system); BOD now receives reports; added alerts and acknowledgements for the Nurse; replaced "care requests", "announcements", "request updates", "shift handover" and "backup/restore" with the flows of the use cases; names unified (Admin, Radar, Nurse); added the Use cases column | Every flow must belong to a use case, and the alert is pushed to phones (ADR-005) |
+| v2 | Added Browser push service; removed the "alert rules" flow from the Admin (alert rules are fixed in the system); BOD now receives reports; added alerts and acknowledgements for the Nurse; revised the actor names | Lesson 7 inputs check |
+| v3 | Added Nurse-to-system flow for alert closure outcomes | Clarified that the Nurse reports the outcome when closing an alert in UC-06 |
