@@ -5,8 +5,8 @@
 | AD ID | AD-UC-12 |
 | Use case | UC-12 Assign a role to an account |
 | Feature | F-06 System Administration |
-| Primary actor | System Admin |
-| Lanes | System Admin · Dien Hong System |
+| Primary actor | Admin |
+| Lanes | Admin · Dien Hong System |
 | Inputs (L3-L5) | Context Diagram (Admin) · Use Case Diagram · Sequence: SD-UC-12 · Architecture · W1 rows FR-06-02, FR-06-03, FR-06-08 |
 | Trigger | The Admin needs to assign a role to an account, including when a staff member changes position |
 | Preconditions | The Admin is signed in. The selected account is Active. |
@@ -21,7 +21,7 @@
 
 ```mermaid
 swimlane-beta TB
-  subgraph ADM["System Admin"]
+  subgraph ADM["Admin"]
     start@{ shape: sm-circ }
     A1("A1: Identify the active account to assign a role to")
     A3("A3: Select role and confirm request")
@@ -85,9 +85,9 @@ Proposed FRs that are not yet in W1:
 
 | Branch | Given | When | Then |
 | :---- | :---- | :---- | :---- |
-| D1 \[No\] | the System admin does not have permission to assign roles | the System admin selects an account to assign a role | no role is changed, the request is rejected with an insufficient-permission message, and the Role is in state Unauthorized |
-| D1 \[Yes\] → D2 \[No\] → S5 → M1 → S6 | the System admin may assign roles but not the role they choose | the System admin selects that role and confirms | no role is changed; the request is rejected as outside the permitted scope, the flow goes from S5 through M1 back to S6, and the Admin can choose again |
-| D1 \[Yes\] → D2 \[Yes\] | the System admin may assign roles, the chosen role is within their permissions, and the active account currently holds the role "Nurse" | the System admin selects the role "Receptionist" and confirms | the account holds the role "Receptionist" and its permissions only, the permissions of "Nurse" no longer apply on the account's next request, the Role is in state Authorized, and the action is recorded in the action log |
+| D1 \[No\] | the admin does not have permission to assign roles | the admin selects an account to assign a role | no role is changed, the request is rejected with an insufficient-permission message, and the Role is in state Unauthorized |
+| D1 \[Yes\] → D2 \[No\] → S5 → M1 → S6 | the admin may assign roles but not the role they choose | the admin selects that role and confirms | no role is changed; the request is rejected as outside the permitted scope, the flow goes from S5 through M1 back to S6, and the Admin can choose again |
+| D1 \[Yes\] → D2 \[Yes\] | the admin may assign roles, the chosen role is within their permissions, and the active account currently holds the role "Nurse" | the admin selects the role "Receptionist" and confirms | the account holds the role "Receptionist" and its permissions only, the permissions of "Nurse" no longer apply on the account's next request, the Role is in state Authorized, and the action is recorded in the action log |
 
 ## 4. Object states used
 
