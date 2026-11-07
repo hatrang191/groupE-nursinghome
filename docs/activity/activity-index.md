@@ -27,7 +27,7 @@ Use cases
 | UC-05 | Update condition | F-02 | Must | `AD-UC-05.md` | Reviewed | Nguyen Tran Khanh Linh |  |
 | UC-06 | Send and acknowledge alert | F-03 | Must | `AD-UC-06.md` | Reviewed | Nguyen Ha Linh Trang |  |
 | UC-07 | Receive alert notice | F-03 | Must | `AD-UC-07.md` | Reviewed | Nguyen Ha Linh Trang |  |
-| UC-08 | View resident's condition | F-04 | Should | `AD-UC-08.md` | Reviewed | Nguyen Tran Khanh Linh |  |
+| UC-08 | View resident's condition | F-04 | Must | `AD-UC-08.md` | Reviewed | Nguyen Tran Khanh Linh |  |
 | UC-09 | Exchange messages between family and nurses | F-04 | Should | `AD-UC-09.md` | Reviewed | Tran Le Bao An |  |
 | UC-10 | View reports | F-05 | Could | not needed |  |  | This is a query and display operation, with no IF statements. |
 | UC-11 | Set up accounts | F-06 | Must | `AD-UC-11.md` | Reviewed | Le Thi Thuy Linh |  |
