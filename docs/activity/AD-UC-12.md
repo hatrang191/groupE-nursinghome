@@ -1,9 +1,9 @@
-# Activity Diagram: AD-UC-12 Assign a role to an account
+# Activity Diagram: AD-UC-12 Assign role-based permissions
 
 | Field | Value |
 | :---- | :---- |
 | AD ID | AD-UC-12 |
-| Use case | UC-12 Assign a role to an account |
+| Use case | UC-12 Assign role-based permissions |
 | Feature | F-06 System Administration |
 | Primary actor | Admin |
 | Lanes | Admin · Dien Hong System |
