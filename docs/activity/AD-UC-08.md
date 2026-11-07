@@ -4,7 +4,7 @@
 | --- | --- |
 | AD ID | `AD-UC-08` |
 | Use case | `UC-08 View resident's condition` |
-| Feature | `F-04 Family Communication` |
+| Feature | `F-02 Condition Tracking` |
 | Primary actor | Residents’ Family |
 | Lanes | Residents’ Family · Dien Hong system |
 | Inputs (L3-L5) | Context Diagram (Residents’ Family ↔︎ Dien Hong system: Current status, status history, incident alerts, announcements, request updates) · Use Case Diagram (View resident’s condition, in the Family mobile app) · W1 rows FR-04-01 FE “Verify family access to resident” FR-04-02-FE, FR-04-02-BE (View resident’s condition) |
