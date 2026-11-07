@@ -22,7 +22,7 @@ flowchart LR
 | Step | Use case                           | Activity diagram | Screens |
 | ---- | ---------------------------------- | ---------------- | ------- |
 | 1    | UC-01 Create new resident profile  | `AD-UC-01.md`    |         |
-| 2    | UC-02 Update resident information  | `AD-UC-02(1).md` |         |
+| 2    | UC-02 Update resident information  | `AD-UC-02.md` |         |
 
 ## Nurse: keep a resident's condition up to date
 
