@@ -23,9 +23,9 @@
 swimlane-beta TB
   subgraph ADM["Admin"]
     start@{ shape: sm-circ }
-    A1("A1: Request account management and choose an operation (create, edit or deactivate)")
+    A1("A1: Request account management and choose an operation")
     A2("A2: Provide account information and, for a family account, the resident or residents to link")
-    A4("A4: Select an active account and provide the changes (name, contact information or a new password)")
+    A4("A4: Select an active account and provide the changes")
     A5("A5: Select an active account to deactivate")
     A3("A3: Adjust account information")
     D3{"D3: Continue creating or editing the account? [FR-06-04]"}
@@ -35,12 +35,13 @@ swimlane-beta TB
     S1("S1: Reject request [FR-06-03]")
     D4{"D4: Which operation did Admin choose?"}
     M1{" "}
-    D2{"D2: Is the information complete and valid (a family account needs a resident),<br>and is the identifier not used by another account? [FR-06-04, FR-06-05]"}
+    D2{"D2: Is the information complete and valid,<br>and is the identifier not used by another account? [FR-06-04, FR-06-05]"}
     S2("S2: Identify and report information errors [FR-06-04]")
     D5{"D5: Is this a new account?"}
     S3("S3: Create and save new account, with its resident links for a family account [FR-06-01, FR-06-05]")
     S5("S5: Save the changed information [FR-06-06]")
-    S7("S7: Deactivate account and end its sessions [FR-06-07]")
+    D6{"D6: Does Admin confirm the deactivation? [FR-06-07]"}
+    S8("S8: Deactivate account")
     M2{" "}
     S6("S6: Record the action in the action log [FR-06-08]")
     S4("S4: Confirm that the operation is complete [FR-06-01, FR-06-06, FR-06-07]")
@@ -53,7 +54,9 @@ swimlane-beta TB
   D1 -->|"[Yes]"| D4
   D4 -->|"[Create]"| A2 --> M1
   D4 -->|"[Edit]"| A4 --> M1
-  D4 -->|"[Deactivate]"| A5 --> S7 --> O2 --> M2
+  D4 -->|"[Deactivate]"| A5 --> D6
+  D6 -->|"[No]"| stop1
+  D6 -->|"[Yes]"| S8 --> O2 --> M2
   M1 --> D2
   D2 -->|"[No]"| S2 --> D3
   D2 -->|"[Yes]"| D5
