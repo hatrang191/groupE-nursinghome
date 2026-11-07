@@ -7,8 +7,8 @@
 | Feature | `F-04 Family Communication` |
 | Primary actor | Residents’ Family |
 | Lanes | Residents’ Family · Dien Hong system |
-| Inputs (L3-L5) | Context Diagram (Residents’ Family ↔︎ Dien Hong system: Current status, status history, incident alerts) · Use Case Diagram (View resident’s condition, in the Family mobile app) · W1 rows FR-04-01 FE “Verify family access to resident” FR-04-02-FE, FR-04-02-BE (View resident’s condition) |
-| Trigger | A family member opens the mobile app to see the condition of one of their residents (FR-04-02) |
+| Inputs (L3-L5) | Context Diagram (Residents’ Family ↔︎ Dien Hong system: Current status, status history, incident alerts) · Use Case Diagram (View resident’s condition, in the Family web app) · W1 rows FR-04-01 FE “Verify family access to resident” FR-04-02-FE, FR-04-02-BE (View resident’s condition) |
+| Trigger | A family member opens the web app on their phone to see the condition of one of their residents (FR-04-02) |
 | Preconditions | The family member is signed in and their account is linked to one or more residents when the account is created (UC-11). A condition may or may not have been recorded for a resident (UC-05). |
 | Success end state | The family member sees the current condition of the resident they selected from their linked residents, or is told that no condition has been recorded yet for that resident. Nothing is changed. |
 | Failure end state(s) | Access to the selected resident cannot be verified: no condition is shown and the family member sees an access-denied message (FR-04-01). |
