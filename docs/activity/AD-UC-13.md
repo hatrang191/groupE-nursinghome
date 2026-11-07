@@ -8,7 +8,7 @@
 | Primary actor          | Admin                                                                                                                                                                           |
 | Lanes                  | Admin · Dien Hong System                                                                                                                                                        |
 | Inputs (L3-L5)         | Context Diagram (Admin; Radar) · Use Case Diagram ("Monitor radar status") · Sequence: SD-UC-13 · Architecture (Radar Gateway) · W1 rows FR-06-03, FR-06-09, FR-06-10, FR-06-11 |
-| Trigger                | The Admin wants to check whether the radars are working                                                                                                                         |
+| Trigger                | The Admin requests the status of the radars                                                                                                                        |
 | Preconditions          | The Admin is signed in. The radars are already registered in the system (set up outside this use case).                                                                         |
 | Success end state      | The Admin has seen the current status of every radar and the time of its last data; radars that are Offline are highlighted.                                                    |
 | Failure end state      | No radar status is shown; the Admin is told why (no permission, or the status cannot be obtained).                                                                              |
