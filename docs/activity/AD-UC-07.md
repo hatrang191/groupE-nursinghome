@@ -170,10 +170,10 @@ Filled in during Lesson 8, from the Screen List.
 
 | Item | Change |
 |---|---|
-| Use case inventory (W0 Table 1) | **Add** `UC-07 Receive alert notice`, primary actor Residents' Family, feature F-03. Add it to the Use Case Diagram as well |
-| Priority | Both FRs are Should, so by the course rule the use case is Should and gets "later". Either set the priority of UC-07 to Must, or keep this diagram as an early draft - Resolved: UC-07 is Must because FR-03-09 is Must (W4) |
+| Use case inventory (W0 Table 1) | UC-07 is in W0 Table 1 and the Use Case Diagram (Must, F-03) |
+| Priority | Resolved: UC-07 is Must because FR-03-09 is Must (W4) |
 | FR-03-09 | Receive alert notice (family), Must. EARS: “WHEN a new alert is dangerous (BR-03-01: severity High) and its resident has at least one linked family member, the system SHALL send one first notice to every linked family account as a push notice to their phone.” ([...] |
-| FR-03-10 | **New**, Send closed notice to family, Could: "WHEN a new alert is dangerous (BR-03-01: severity High) and its resident has at least one linked family member, the system SHALL send one first notice to every linked family account as a push notice to their phone" |
+| FR-03-10 | **New**, Send closed notice to family, Could: “WHEN an alert whose first notice was delivered is closed, the system SHALL send one closed notice with the outcome to the linked family account." |
 | FR-03-11 | **New**, Skip or retry family push, Could: “IF the resident of a dangerous alert has no linked family member, THEN the system SHALL skip the push. IF a push to the family fails, THEN the system SHALL retry it up to 3 times and then log the failure.”. Now in the diagram (`d5`, `s11`, `s13`, `s12`) |
 | BR-03-01 | **New**: an alert is dangerous when its severity is High |
 
