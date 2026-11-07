@@ -8,12 +8,12 @@ Lesson 5 (Function List workshop, block W0). Inputs: [CVCA](../context/cvca.md),
 |-------------|---------------------------------------------|--------------------------|------------------|----------------|----------|
 | UC-01       | Create new resident profile                 | Receptionist             | F-01             | Yes            | Must     |
 | UC-02       | Update resident information                 | Receptionist             | F-01             | Yes            | Should   |
-| UC-03       | View resident's profile                     | Nurse                    | F-01             | Yes            | Must     |
+| UC-03       | View resident's profile                     | Nurse                    | F-01             | Yes            | Should     |
 | UC-04       | View condition history                      | Nurse                    | F-02             | Yes            | Should   |
 | UC-05       | Update condition                            | Nurse                    | F-02             | Yes            | Must     |
 | UC-06       | Send and acknowledge alert                  | Radar                    | F-03             | No             | Must     |
 | UC-07       | Receive alert notice                        | Residents' Family        | F-03             | Yes            | Must     |
-| UC-08       | View resident's condition                   | Residents' Family        | F-04             | Yes            | Should     |
+| UC-08       | View resident's condition                   | Residents' Family        | F-04             | Yes            | Must     |
 | UC-09       | Exchange messages between family and nurses | Nurse, Residents' Family | F-04             | Yes            | Should     |
 | UC-10       | View reports                                | BOD                      | F-05             | Yes            | Could    |
 | UC-11       | Set up accounts                             | Admin                    | F-06             | Yes            | Must     |
