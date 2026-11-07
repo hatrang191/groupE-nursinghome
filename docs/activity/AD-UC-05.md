@@ -7,7 +7,7 @@
 | Feature | `F-02 Condition Tracking` |
 | Primary actor | Nurse |
 | Lanes | Nurse · Dien Hong system |
-| Inputs (L3-L5) | Context Diagram (Nurses ↔︎ Dien Hong system: Daily status updates, shift handover notes, updates for family) · Use Case Diagram (UC-05, Nurse) · W1 rows FR-02-01-FE, FR-02-01-BE “Validate condition”, FR-02-02-FE, FR-02-02-BE “Update condition”, FR-02-03-BE “Keep condition history” |
+| Inputs (L3-L5) | Context Diagram (Nurses ↔︎ Dien Hong system: Daily condition updates, shift handover notes, updates for family) · Use Case Diagram (UC-05, Nurse) · W1 rows FR-02-01-BE “Validate condition”, FR-02-02-FE, FR-02-02-BE “Update condition”, FR-02-03-BE “Keep condition history” |
 | Trigger | The nurse selects or enters a resident’s condition and saves it (FR-02-02) |
 | Preconditions | The nurse is signed in and their role allows updating conditions (FR-06-03). The resident already has a profile (UC-01). |
 | Success end state | One new condition record, in state Saved, is stored for the resident with the time and the nurse’s name. Every earlier condition record of that resident is unchanged. |
@@ -111,7 +111,7 @@ An action that cannot be traced is a missing FR. These are the changes the UC-05
 
 | FR | Function | Change |
 | --- | --- | --- |
-| FR-02-01 | Validate condition | New function, answering open question #1, #2. EARS criterion: “IF the condition is invalid, THEN the system SHALL reject the save, leave earlier records unchanged, tell the nurse why, and let the nurse correct the condition and save it again.” This covers `d1`, `s0` and `a3`. |
+| FR-02-01 | Validate condition | New function, answering open question #1, #2. EARS criterion: “IIF a nurse saves a condition that is invalid, such as a blank condition, THEN the system SHALL reject the save, leave earlier records unchanged, tell the nurse why, and let the nurse correct the condition and save it again.” This covers `d1`, `s0` and `a3`. |
 | FR-02-02 | Update condition | **Change** the EARS criterion: “WHEN a nurse selects an existing resident, enters the resident’s condition and saves, the system SHALL store it for that resident with the time and the nurse’s name.” This covers `a1` and `s1`. |
 | FR-02-03 | Keep condition history | No change. |
 
