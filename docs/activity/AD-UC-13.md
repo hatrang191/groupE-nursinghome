@@ -5,8 +5,8 @@
 | AD ID                  | AD-UC-13                                                                                                                                                                        |
 | Use case               | UC-13 Monitor radar status                                                                                                                                                      |
 | Feature                | F-06 System Administration                                                                                                                                                      |
-| Primary actor          | System Admin                                                                                                                                                                    |
-| Lanes                  | System Admin · Dien Hong System                                                                                                                                                 |
+| Primary actor          | Admin                                                                                                                                                                           |
+| Lanes                  | Admin · Dien Hong System                                                                                                                                                        |
 | Inputs (L3-L5)         | Context Diagram (Admin; Radar) · Use Case Diagram ("Monitor radar status") · Sequence: SD-UC-13 · Architecture (Radar Gateway) · W1 rows FR-06-03, FR-06-09, FR-06-10, FR-06-11 |
 | Trigger                | The Admin wants to check whether the radars are working                                                                                                                         |
 | Preconditions          | The Admin is signed in. The radars are already registered in the system (set up outside this use case).                                                                         |
@@ -21,7 +21,7 @@
 
 ```mermaid
 swimlane-beta TB
-  subgraph ADM["System Admin"]
+  subgraph ADM["Admin"]
     start@{ shape: sm-circ }
     A1("A1: Request radar status")
     A2("A2: Review the status of the radars")
@@ -97,10 +97,10 @@ One row per outgoing branch of every decision. DBIZ3 turns each row into at leas
 
 | Branch | Given | When | Then |
 | :---- | :---- | :---- | :---- |
-| D1 \[No\] | a System admin account whose role has no permission to monitor radar status | it requests the radar status | no radar status is shown, the request is rejected with an insufficient-permission message, and the Radar status is in state Rejected |
-| D1 \[Yes\] → D2 \[No\] | the System admin has permission, and the Radar Gateway cannot be reached | the System admin requests the radar status | the message that the status cannot be shown is displayed, no old status is shown as current, and the Radar status is in state Unavailable |
-| D1 \[Yes\] → D2 \[Yes\] → D3 \[Yes\] | the System admin has permission, the radar in room 101 sent data a few seconds ago, and the radar in room 102 sent no data for longer than the Offline limit | the System admin requests the radar status | both radars are shown with their status and last data time, the radar in room 102 is highlighted as Offline, and the Radar status is in state Displayed |
-| D1 \[Yes\] → D2 \[Yes\] → D3 \[No\] | the System admin has permission and both registered radars sent data within the Offline limit | the System admin requests the radar status | both radars are shown with status Online and last data time, no radar is highlighted, and the Radar status is in state Displayed |
+| D1 \[No\] | Admin account whose role has no permission to monitor radar status | it requests the radar status | no radar status is shown, the request is rejected with an insufficient-permission message, and the Radar status is in state Rejected |
+| D1 \[Yes\] → D2 \[No\] | the Admin has permission, and the Radar Gateway cannot be reached | the Admin requests the radar status | the message that the status cannot be shown is displayed, no old status is shown as current, and the Radar status is in state Unavailable |
+| D1 \[Yes\] → D2 \[Yes\] → D3 \[Yes\] | the Admin has permission, the radar in room 101 sent data a few seconds ago, and the radar in room 102 sent no data for longer than the Offline limit | the Admin requests the radar status | both radars are shown with their status and last data time, the radar in room 102 is highlighted as Offline, and the Radar status is in state Displayed |
+| D1 \[Yes\] → D2 \[Yes\] → D3 \[No\] | the Admin has permission and both registered radars sent data within the Offline limit | the Admin requests the radar status | both radars are shown with status Online and last data time, no radar is highlighted, and the Radar status is in state Displayed |
 
 ## 4. Object states used
 
