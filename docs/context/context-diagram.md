@@ -32,7 +32,7 @@ flowchart LR
   FAM -->|"messages"| DH
   DH -->|"current condition, alert notices, messages"| FAM
 
-  RAD -->|"monitoring signals, device status"| DH
+  RAD -->|"abnormal events, connection check responses"| DH
 
   NUR -->|"condition updates, alert acknowledgements, alert closure outcomes, messages"| DH
   DH -->|"resident profiles, condition history, alerts, messages"| NUR
@@ -53,7 +53,7 @@ to the family (if the first notice was sent).
 | Receptionist | Admission records, info updates | (none) | UC-01, UC-02 |
 | Admin | User accounts, role permissions | Radar device status, access and action logs | UC-11, UC-12, UC-13, UC-14 |
 | Residents' Family | Messages | Current condition, alert notices, messages | UC-07, UC-08, UC-09 |
-| Radar | Monitoring signals, device status | (none) | UC-06, UC-13 |
+| Radar | Abnormal events, connection check responses | (none) | UC-06, UC-13 |
 | Nurse | Condition updates, alert acknowledgements, alert closure outcomes, messages | Resident profiles, condition history, alerts, messages | UC-03, UC-04, UC-05, UC-06, UC-09 |
 | Browser push service | (none) | Push notices | UC-06, UC-07 |
 
