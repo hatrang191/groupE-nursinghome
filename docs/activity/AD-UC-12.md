@@ -8,7 +8,7 @@
 | Primary actor | Admin |
 | Lanes | Admin · Dien Hong System |
 | Inputs (L3-L5) | Context Diagram (Admin) · Use Case Diagram · Sequence: SD-UC-12 · Architecture · W1 rows FR-06-02, FR-06-03, FR-06-08 |
-| Trigger | The Admin needs to assign a role to an account, including when a staff member changes position |
+| Trigger | The Admin selects a role for an account, including when a staff member changes position |
 | Preconditions | The Admin is signed in. The selected account is Active. |
 | Success end state | The selected account holds the assigned role and only the permissions that come with it; the permissions of the previous role no longer apply. The change takes effect on the account's next request, with no sign-out needed. The action is recorded in the action log. |
 | Failure end state | No role is changed; the Admin is told why (not enough permission, or the request is outside the permitted scope). |
