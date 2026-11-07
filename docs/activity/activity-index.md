@@ -22,7 +22,7 @@ Use cases
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
 | UC-01 | Create new resident profile | F-01 | Must | `AD-UC-01.md` | Reviewed | Le Ha Thanh |  |
 | UC-02 | Update resident information | F-01 | Should | `AD-UC-02.md` | Reviewed | Nguyen Thi Truc Anh |  |
-| UC-03 | View resident's profile | F-01 | Must | not needed |  |  | Single display step (FR-01-03); no decision, no external system, no time trigger |
+| UC-03 | View resident's profile | F-01 | Should | not needed |  |  | Single display step (FR-01-03); no decision, no external system, no time trigger |
 | UC-04 | View condition history | F-02 | Should | not needed |  |  | Single display step (FR-02-04); no decision, no external system, no time trigger |
 | UC-05 | Update condition | F-02 | Must | `AD-UC-05.md` | Reviewed | Nguyen Tran Khanh Linh |  |
 | UC-06 | Send and acknowledge alert | F-03 | Must | `AD-UC-06.md` | Reviewed | Nguyen Ha Linh Trang |  |
