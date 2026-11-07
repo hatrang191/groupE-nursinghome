@@ -6,8 +6,7 @@
 | Date | Lesson 7 |
 
 **Context.** The Nurse must see an alert within a minute, and the family must get a notice when
-an alert is dangerous and when it is closed. Both groups carry a phone. The team does not build a
-native app (ADR-001), and does not want a paid SMS service.
+an alert is dangerous and when it is closed (if the first alert was sent). Both groups carry a phone. The team does not build a native app (ADR-001), and does not want a paid SMS service.
 
 **Decision.** Send alerts as push notices to the web app installed on the phone. The API Server
 asks the Notification Service, which sends the notice through the browser push service.
