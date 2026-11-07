@@ -65,4 +65,4 @@ Every user sends sign-in details (account and password) before using the system;
 | v1 | First version: BOD, Receptionist, System admin, Residents' Family, Radar Monitoring System, Nurses | |
 | v2 | Added Browser push service; removed the "alert rules" flow from the Admin (alert rules are fixed in the system); BOD now receives reports; added alerts and acknowledgements for the Nurse; revised the actor names | Lesson 7 inputs check |
 | v3 | Added Nurse-to-system flow for alert closure outcomes | Clarified that the Nurse reports the outcome when closing an alert in UC-06 |
-| v4 | Added “sign-in details” to the flows from every user | FR-00-01 Sign in traces to “Context: all user entities |
+| v4 | Added “sign-in details” to the flows from every user; changed the Radar flow to abnormal events and connection check responses | FR-00-01 Sign in traces to "Context: all user entities" |
