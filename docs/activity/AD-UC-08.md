@@ -4,10 +4,10 @@
 | --- | --- |
 | AD ID | `AD-UC-08` |
 | Use case | `UC-08 View resident's condition` |
-| Feature | `F-02 Condition Tracking` |
+| Feature | `F-04 Family Communication` |
 | Primary actor | Residents’ Family |
 | Lanes | Residents’ Family · Dien Hong system |
-| Inputs (L3-L5) | Context Diagram (Residents’ Family ↔︎ Dien Hong system: Current status, status history, incident alerts, announcements, request updates) · Use Case Diagram (View resident’s condition, in the Family mobile app) · W1 rows FR-04-01 FE “Verify family access to resident” FR-04-02-FE, FR-04-02-BE (View resident’s condition) |
+| Inputs (L3-L5) | Context Diagram (Residents’ Family ↔︎ Dien Hong system: Current status, status history, incident alerts) · Use Case Diagram (View resident’s condition, in the Family mobile app) · W1 rows FR-04-01 FE “Verify family access to resident” FR-04-02-FE, FR-04-02-BE (View resident’s condition) |
 | Trigger | A family member opens the mobile app to see the condition of one of their residents (FR-04-02) |
 | Preconditions | The family member is signed in and their account is linked to one or more residents when the account is created (UC-11). A condition may or may not have been recorded for a resident (UC-05). |
 | Success end state | The family member sees the current condition of the resident they selected from their linked residents, or is told that no condition has been recorded yet for that resident. Nothing is changed. |
@@ -52,7 +52,7 @@ Reading notes:
 - No flow returns to an earlier node, so the diagram needs no merge node. Three flows end at `stop1` (`a2`, `a3`, `a4`); this is allowed because a final node is not an action.
 - The access is checked by FR-04-01 “Verify family access to resident”. `s0`, `d1` and `s2` trace to it, and the guards copy its IF clause.
 - The no-condition case stays inside FR-04-02 as an IF clause. `d2` and `s3` trace to it, and `a4` is the family member’s side of `s3`.
-- `o1` is read, not written. UC-05 writes the record in state `Saved`; this use case only reads it. “Current condition” is taken as the most recent record, because FR-02-02 keeps every earlier one.
+- `o1` is read, not written. UC-05 writes the record in state `Saved`; this use case only reads it. “Current condition” is taken as the most recent record, because FR-02-03 keeps every earlier one.
 - One family account can link to several residents, so `a1` has the family member choose one. The link itself is created in Set up accounts and is not drawn here.
 
 ## 2. Node trace
