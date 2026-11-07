@@ -29,13 +29,13 @@ UC-07 was added after the Lesson 7 Inputs check (see [activity-index](../activit
 |------------|------------------------------|-----------------------|-----------------------|-------|-------------------|
 | F-00 | Platform and Access | Every user signs in with their own account and reaches only the screens of their role. | Receptionist, Nurse, BOD, Admin, Residents’ Family | Nguyễn Trần Khánh Linh | none (platform function) |
 | F-01 | Resident Profile Management | Staff create, update and view resident profiles so every resident has accurate, up-to-date basic information. | Receptionist, Nurse | Nguyễn Thị Trúc Anh | UC-01, UC-02, UC-03 |
-| F-02 | Condition Tracking | Nurses record each resident's condition and review its history over time. | Nurse | Nguyễn Hà Linh Trang | UC-04, UC-05, UC-08 |
-| F-03 | Abnormal Alert Handling | The radar system detects abnormal events and sends alerts that nurses and families receive immediately. | Radar, Nurse, Residents' Family | Lê Hà Thanh | UC-06, UC-07 |
-| F-04 | Family Communication | Families follow their relative's condition and chat directly with nurses through the mobile app. | Residents' Family, Nurse | Nguyễn Trần Khánh Linh | UC-09 |
+| F-02 | Condition Tracking | Nurses record each resident's condition and review its history over time. | Nurse | Nguyễn Hà Linh Trang | UC-04, UC-05 |
+| F-03 | Abnormal Alert Handling | The radar system detects abnormal events and sends alerts that nurses and families receive immediately as push notifications. | Radar, Nurse, Residents' Family | Lê Hà Thanh | UC-06, UC-07 |
+| F-04 | Family Communication | Families follow their relative's condition and chat directly with nurses through the web app on their phone. | Residents' Family, Nurse | Nguyễn Trần Khánh Linh | UC-08, UC-09 |
 | F-05 | Dashboard & Reporting | The Board of Directors views summary reports on care and operations. | BOD | Trần Lê Bảo An | UC-10 |
 | F-06 | System Administration | Admins set up accounts, assign role-based permissions, monitor radar devices and audit access and action logs. | Admin | Lê Thị Thùy Linh | UC-11, UC-12, UC-13, UC-14 |
 
-Feature count: 6 (allowed 3 to 6): PASS. Coverage against the CVCA: all primary actors (Receptionist, Nurse, Residents' Family, BOD, Admin) are served.
+Feature count: 7 (allowed 3 to 6): REVIEW NEEDED. Coverage against the CVCA: all primary actors (Receptionist, Nurse, Residents' Family, BOD, Admin) are served.
 
 ## Table 3. Won't-have (recorded, never dropped silently)
 
@@ -70,11 +70,11 @@ The rules below consolidate business constraints currently stated or assumed in 
 | BR-01-02 | A resident profile shall be saved or updated only when its required information is valid. The required fields and validation criteria must be defined before implementation. | UC-01, UC-02 | FR-01-01, FR-01-02; open questions in [AD-UC-01](../activity/AD-UC-01.md) and [AD-UC-02](../activity/AD-UC-02.md) | Needs confirmation: validation criteria are not specified. |
 | BR-02-01 | Each valid condition update shall be saved as a new record; existing condition records shall not be overwritten. | UC-05 | FR-02-03; [AD-UC-05](../activity/AD-UC-05.md) | Stated in the activity diagram. |
 | BR-02-02 | The current condition shown to a family member shall be the resident's most recently saved condition record. | UC-08 | [AD-UC-08](../activity/AD-UC-08.md), reading note and acceptance tests | Needs confirmation: documented as the interpretation of “current condition.” |
-| BR-03-01 | An alert is dangerous when its severity is High. | UC-07 | FR-03-08; [AD-UC-07](../activity/AD-UC-07.md) | Needs client confirmation; currently an assumption. |
-| BR-03-02 | Send one first notice for a dangerous alert, and do not send a first notice for a non-dangerous alert. | UC-07 | FR-03-08; SyR-06; [AD-UC-07](../activity/AD-UC-07.md) | Depends on confirmation of BR-03-01. “Once” is specified in AD-UC-07. |
-| BR-03-03 | Send one closed notice only if the first notice for that alert was sent. | UC-07 | FR-03-09; ADR-005; [AD-UC-07](../activity/AD-UC-07.md) | Documented in ADR-005 and AD-UC-07; align SyR-06 wording. |
-| BR-03-04 | If the resident has no linked family member, skip the family push notice. | UC-07 | FR-03-10; [AD-UC-07](../activity/AD-UC-07.md) | Stated in the activity diagram. |
-| BR-03-05 | If a family push notice fails, retry it up to the configured retry limit and log the failure when the limit is reached. The retry limit and interval must be specified. | UC-07 | FR-03-10; [AD-UC-07](../activity/AD-UC-07.md), open questions 5–6 | Needs confirmation: AD-UC-07 assumes three retries and a one-minute interval. |
+| BR-03-01 | An alert is dangerous when its severity is High. | UC-07 | FR-03-09; [AD-UC-07](../activity/AD-UC-07.md) | Needs client confirmation; currently an assumption. |
+| BR-03-02 | Send one first notice for a dangerous alert, and do not send a first notice for a non-dangerous alert. | UC-07 | FR-03-09; SyR-06; [AD-UC-07](../activity/AD-UC-07.md) | Depends on confirmation of BR-03-01. “Once” is specified in AD-UC-07. |
+| BR-03-03 | Send one closed notice only if the first notice for that alert was sent. | UC-07 | FR-03-10; ADR-005; [AD-UC-07](../activity/AD-UC-07.md) | Documented in ADR-005 and AD-UC-07; align SyR-06 wording. |
+| BR-03-04 | If the resident has no linked family member, skip the family push notice. | UC-07 | FR-03-11; [AD-UC-07](../activity/AD-UC-07.md) | Stated in the activity diagram. |
+| BR-03-05 | If a family push notice fails, retry it up to the configured retry limit and log the failure when the limit is reached. retry up to 3 times, then log the failure (the interval is still open) | UC-07 | FR-03-11; [AD-UC-07](../activity/AD-UC-07.md), open questions 5–6 | Needs confirmation: AD-UC-07 assumes three retries and a one-minute interval. |
 | BR-03-06 | Notify nurses again if an alert is not acknowledged within one minute; count the initial notice as one of three notices. If the alert is still unacknowledged after the third notice, log the failure and keep the alert Escalated. | UC-06 | FR-03-02–FR-03-05; [AD-UC-06](../activity/AD-UC-06.md) | Confirm the notice count and post-failure handling against the open questions in AD-UC-06. |
 | BR-03-07 | Send family notices to all family members linked to the resident. | UC-07 | [AD-UC-07](../activity/AD-UC-07.md), acceptance tests and open question 4 | Needs confirmation: currently an assumption. |
 | BR-04-01 | A family member may view a resident's condition only when the system verifies that the resident is linked to that family member's account. | UC-08 | FR-04-01; [AD-UC-08](../activity/AD-UC-08.md) | Access check is required; confirm the exact verification rule. |
