@@ -14,7 +14,7 @@
 | 8 | The flows "handover notes", "announcements" and "backup/restore" have no use case | Context Diagram | Removed these flows (out of scope) | Nguyen Ha Linh Trang | Done |
 | 9 | Family is only connected to Receptionist; the flows DH → Family (alerts, status) and Family → DH (messages, requests) are missing | CVCA | Added both flows | Nguyen Ha Linh Trang | Done |
 | 10 | The Context Diagram says "built from CVCA", but the CVCA has no Admin | CVCA | Added Admin inside the Nursing House box | Le Ha Thanh | Done |
-| 11 | Names are inconsistent across the 3 files: Admin / System admin, Radar / Radar Monitoring System, Receptionist - Accountant / Receptionist | All 3 files | Use "Admin" in all 3 files; pick one name each for Radar and Receptionist; update the Change log to v2 | Le Ha Thanh | Done |
+| 11 | Names are inconsistent across the 3 files: Admin / System admin, Radar / Radar, Receptionist - Accountant / Receptionist | All 3 files | Use "Admin" in all 3 files; pick one name each for Radar and Receptionist; update the Change log to v2 | Le Ha Thanh | Done |
 
 Use cases
 
@@ -45,8 +45,8 @@ Selection basis for the Must use cases that get a diagram:
 | UC-06 | External lane (Radar Monitoring System) starts the flow; the alert is stored with severity, location and time | FR-03-01, FR-03-02, FR-03-03, FR-03-04, FR-03-05, FR-03-06, FR-03-07 |
 | UC-07 | External lane (Radar) starts the flow, plus system lane and Residents' Family lane; decisions: only a dangerous alert (BR-03-01) gets a first notice, IF the resident has no linked family member skip the push, IF the push fails retry then log; one more notice when the alert is Closed | FR-03-08, FR-03-09, FR-03-10 |
 | UC-08 | Decision: IF the family member's access to that resident cannot be verified, deny the request | FR-04-01 |
-| UC-09 | Three lanes (Residents' Family, Dien Hong system, Nurses); decision: who starts the message (family member or nurse); a loop allows further messages in the same conversation | FR-04-02, FR-04-03 |
-| UC-11 | System admin lane plus system lane; the account is saved with name, role and credentials | FR-06-01, FR-06-03, FR-06-04, FR-06-05, FR-06-06 |
+| UC-09 | Three lanes (Residents' Family, Dien Hong System, Nurses); decision: who starts the message (family member or nurse); a loop allows further messages in the same conversation | FR-04-02, FR-04-03 |
+| UC-11 | Admin lane plus system lane; the account is saved with name, role and credentials | FR-06-01, FR-06-03, FR-06-04, FR-06-05, FR-06-06 |
 | UC-12 | Decisions: Admin may assign roles; the requested role is within the Admin's permissions | FR-06-02, FR-06-03 |
 
 Lane names:
@@ -54,12 +54,12 @@ Lane names:
 | Role in the diagrams | Lane name |
 | :---- | :---- |
 | Receptionist | Receptionist |
-| Nurse | Nurses |
-| Family member | Residents' Family |
+| Nurses | Nurses |
+| Residents' Family | Residents' Family |
 | Board of directors | BOD |
-| Admin | System admin |
-| Radar | Radar Monitoring System |
-| The whole system | Dien Hong system |
+| Admin | Admin |
+| Radar | Radar |
+| The whole system | Dien Hong System |
 
 &nbsp;
 
