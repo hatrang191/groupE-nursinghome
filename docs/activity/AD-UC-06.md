@@ -9,7 +9,7 @@
 | Lanes | Radar · Dien Hong System (our system, one lane) · Nurse |
 | Inputs (L3-L5) | Context Diagram v[n] (Radar) · Use Case Diagram v[n] · Sequence: `SD-UC-06` · Architecture/ADR [n] · W1 rows FR-03-01 to FR-03-08. |
 | Trigger | The Radar detects an abnormal event of a resident and sends it |
-| Preconditions | Dien Hong System is running 24/7 and is connected to the radar feed (FR-03-08). NNurses are signed in (FR-00-01). |
+| Preconditions | Dien Hong System is running 24/7 and is connected to the radar feed (FR-03-08). Nurses are signed in (FR-00-01). |
 | Success end state | One `Alert` in state `Closed` exists with the outcome recorded. |
 | Failure end state(s) | The alert is still not acknowledged 1 minute after the third notice. The failure of this alert is logged and the alert stays `Escalated`. |
 | FRs covered | `FR-03-01`, `FR-03-02`, `FR-03-03`, `FR-03-04`, `FR-03-05`, `FR-03-06` |
