@@ -67,7 +67,7 @@ flowchart LR
   S04_03["S-F04-03<br>Chat with nurse"]
   entry --> S00_01
   S00_01 -->|"[signed in as family member]"| S04_02
-  push --> |"sees push notice"| S03_02
+  push --> |"taps the push notice"| S03_02
   S04_02 -->|"taps Chat with nurse"| S04_03
   S04_02 -->|"taps Alerts in the menu"| S03_02
   S04_03 -->|"taps Back"| S04_02
