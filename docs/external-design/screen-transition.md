@@ -52,6 +52,7 @@ flowchart LR
   S02_02 -->|"taps Save [condition valid]"| S02_01
   S02_02 -->|"taps Back"| S01_01
   S03_01 -->|"taps Home"| S01_01
+  S04_01 -->|"taps Back"| S02_01
   S04_01 -->|"taps Back [opened from a resident]"| S01_02
   S04_01 -->|"taps Home"| S01_01
 ```
