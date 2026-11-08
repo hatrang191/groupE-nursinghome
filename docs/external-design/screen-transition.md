@@ -48,10 +48,11 @@ flowchart LR
   S02_01 -->|"taps Update condition"| S02_02
   S02_01 -->|"taps Message family"| S04_01
   S02_01 -->|"taps Back"| S01_02
+  S02_02 -->|"taps Save [condition valid]"| S01_02
   S02_02 -->|"taps Save [condition valid]"| S02_01
   S02_02 -->|"taps Back"| S01_01
   S03_01 -->|"taps Home"| S01_01
-  S04_01 -->|"taps Back"| S01_02
+  S04_01 -->|"taps Back [opened from a resident]"| S01_02
   S04_01 -->|"taps Home"| S01_01
 ```
 
@@ -123,6 +124,10 @@ flowchart LR
 - Usage-flow paths: every "UC-a to UC-b" arrow of [usage-flow.md](usage-flow.md) has a path.
 - Sign in is shared.
 - A refused request (access denied) sends the user back to the home screen of their role with a message (FR-06-03). 
+- Main task of each actor reaches its result in three screens or fewer from the home screen: yes (for example Nurse: S-F01-01 → S-F02-02 to update a condition; Family: S-F04-02 is the result itself; Admin: S-F06-01 → S-F06-02 to set up an account).
+- Every arrow label is a user action or a system event, never a screen name: yes.
+- A refused request (access denied) sends the user back to the home screen of their role with a message (FR-06-03).
+- Every diagram renders on mermaid.live.
 
 ## Usage-flow paths
 
