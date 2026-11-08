@@ -22,7 +22,7 @@ flowchart LR
 | Step | Use case                           | Activity diagram | Screens |
 | ---- | ---------------------------------- | ---------------- | ------- |
 | 1    | UC-01 Create new resident profile  | `AD-UC-01.md`    |   	S-F01-01, S-F01-03, S-F01-02     |
-| 2    | UC-02 Update resident information  | `AD-UC-02.md` |         |
+| 2    | UC-02 Update resident information  | `AD-UC-02.md` |  S-F01-02, S-F01-03       |
 
 ## Nurse: keep a resident's condition up to date
 
@@ -45,9 +45,9 @@ flowchart LR
 
 | Step | Use case                      | Activity diagram | Screens |
 | ---- | ----------------------------- | ---------------- | ------- |
-| 1    | UC-03 View resident's profile | `not needed`     |         |
-| 2    | UC-04 View condition history  | `not needed`     |         |
-| 3    | UC-05 Update condition        | `AD-UC-05.md`    |         |
+| 1    | UC-03 View resident's profile | `not needed`     |  	S-F01-01, S-F01-02       |
+| 2    | UC-04 View condition history  | `not needed`     | 	S-F02-01        |
+| 3    | UC-05 Update condition        | `AD-UC-05.md`    |  	S-F02-02       |
 ## Nurse: keep a resident's family informed
 
   
@@ -69,9 +69,9 @@ flowchart LR
 
 | Step | Use case                                          | Activity diagram | Screens |
 | ---- | ------------------------------------------------- | ---------------- | ------- |
-| 1    | UC-03 View resident's profile                     | `not needed`     |         |
-| 2    | UC-04 View condition history                      | `not needed`     |         |
-| 3    | UC-09 Exchange messages between family and nurses | `AD-UC-09.md`    |         |
+| 1    | UC-03 View resident's profile                     | `not needed`     |  	S-F01-01, S-F01-02       |
+| 2    | UC-04 View condition history                      | `not needed`     |  	S-F02-01       |
+| 3    | UC-09 Exchange messages between family and nurses | `AD-UC-09.md`    |  S-F04-01       |
 
 ## Residents' Family: stay informed about a resident
 
@@ -86,8 +86,8 @@ flowchart LR
 
 | Step | Use case                                           | Activity diagram | Screens                    |
 | ---- | -------------------------------------------------- | ---------------- | -------------------------- |
-| 1    | UC-08 View resident's condition                    | `AD-UC-08.md`    | TBD: no screen-list.md yet |
-| 2    | UC-09 Exchange messages between family and nurses  | `AD-UC-09.md`    | TBD: no screen-list.md yet |
+| 1    | UC-08 View resident's condition                    | `AD-UC-08.md`    | S-F04-02 |
+| 2    | UC-09 Exchange messages between family and nurses  | `AD-UC-09.md`    | 	S-F04-03 |
 
 
 ## BOD: see how the nursing home is running
@@ -100,7 +100,7 @@ flowchart LR
 
 | Step | Use case           | Activity diagram | Screens |
 | ---- | ------------------ | ---------------- | ------- |
-| 1    | UC-10 View reports | `not needed`     |         |
+| 1    | UC-10 View reports | `not needed`     |  S-F05-01       |
 
 ## Admin: manage account access
 
@@ -118,9 +118,9 @@ flowchart LR
 
 | Step | Use case                            | Activity diagram | Screens (fill in after Block 2) |
 | ---- | ----------------------------------- | ---------------- | ------------------------------- |
-| 1    | UC-11 Set up accounts               | `AD-UC-11.md`    |                                 |
-| 2    | UC-14 View access and action logs   | `not needed`     |                                 |
-| 3    | UC-12 Assign role-based permissions | `AD-UC-12.md`    |                                 |
+| 1    | UC-11 Set up accounts               | `AD-UC-11.md`    |   S-F06-01, S-F06-02                              |
+| 2    | UC-14 View access and action logs   | `not needed`     |   	S-F06-05                              |
+| 3    | UC-12 Assign role-based permissions | `AD-UC-12.md`    |   S-F06-01, S-F06-03                              |
 
 ## Admin: keep the radar working
 
@@ -133,16 +133,18 @@ flowchart LR
 
 | Step | Use case                          | Activity diagram | Screens (fill in after Block 2) |
 | ---- | --------------------------------- | ---------------- | ------------------------------- |
-| 1    | UC-13 Monitor radar status        | `AD-UC-13.md`    |                                 |
-| 2    | UC-14 View access and action logs | `not needed`     |                                 |
+| 1    | UC-13 Monitor radar status        | `AD-UC-13.md`    |     	S-F06-04                            |
+| 2    | UC-14 View access and action logs | `not needed`     |       	S-F06-05                          |
 
 
 ## Use cases without a flow
 
 | Use case | Started by | Described in  |
 | -------- | ---------- | ------------- |
-| UC-06    | Radar      | `AD-UC-06.md` |
-| UC-07    | Radar      | `AD-UC-07.md` |
+| UC-06 Send and acknowledge alert   | Radar, when it detects an abnormal event      | `AD-UC-06.md` |
+| UC-07 Receive alert notice   | Radar, through a dangerous alert of UC-06     | `AD-UC-07.md` |
+
+S-F00-01 Sign in is shared by every flow above: each actor passes through it before the first step.
 
 ## Checks before you save
 
