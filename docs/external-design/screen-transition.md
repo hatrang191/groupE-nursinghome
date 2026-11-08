@@ -25,7 +25,7 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-  entry(["Opens Dien Hong System"])
+  entry(["Open Dien Hong System"])
   alert(["Taps a push notice or the real-time alert pop-up"])
   S00_01["S-F00-01<br>Sign in"]
   S01_01["S-F01-01<br>Resident list"]
@@ -36,10 +36,11 @@ flowchart LR
   S04_01["S-F04-01<br>Nurse chat with family"]
   entry --> S00_01
   S00_01 -->|"[signed in as nurse]"| S01_01
-  alert --> S03_01
-  S01_01 -->|"taps a resident"| S01_02
-  S01_01 -->|"taps Update condition on a resident"| S02_02
+  alert -->|"[nurses notified] taps the notice"| S03_01
+  S01_01 -->|"selects a resident to view the profile"| S01_02
+  S01_01 -->|"selects a resident to update the condition"| S02_02
   S01_01 -->|"taps Alerts in the menu"| S03_01
+  S01_01 -->|"taps Chat in the menu"| S04_01
   S01_02 -->|"taps Condition history"| S02_01
   S01_02 -->|"taps Update condition"| S02_02
   S01_02 -->|"taps Message family"| S04_01
@@ -47,11 +48,11 @@ flowchart LR
   S02_01 -->|"taps Update condition"| S02_02
   S02_01 -->|"taps Message family"| S04_01
   S02_01 -->|"taps Back"| S01_02
-  S02_02 -->|"[condition saved]"| S02_01
-  S02_02 -->|"taps Cancel"| S01_01
-  S03_01 -->|"taps Close alert, reports the outcome in dialog"| S03_01
-  S03_01 -->|"taps Back"| S01_01
+  S02_02 -->|"taps Save [condition valid]"| S02_01
+  S02_02 -->|"taps Back"| S01_01
+  S03_01 -->|"taps Home"| S01_01
   S04_01 -->|"taps Back"| S01_02
+  S04_01 -->|"taps Home"| S01_01
 ```
 
 ## 3. Residents' Family
