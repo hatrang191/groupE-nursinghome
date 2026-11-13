@@ -29,6 +29,7 @@ swimlane-beta TB
     A5("A5: Select an active account to deactivate")
     A3("A3: Adjust account information")
     D3{"D3: Continue creating or editing the account? [FR-06-04]"}
+    D6{"D6: Does Admin confirm the deactivation? [FR-06-07]"}
   end
   subgraph SYS["Dien Hong system"]
     D1{"D1: Does Admin have permission<br>to manage accounts? [FR-06-03]"}
@@ -40,8 +41,7 @@ swimlane-beta TB
     D5{"D5: Is this a new account?"}
     S3("S3: Create and save new account, with its resident links for a family account [FR-06-01, FR-06-05]")
     S5("S5: Save the changed information [FR-06-06]")
-    D6{"D6: Does Admin confirm the deactivation? [FR-06-07]"}
-    S8("S8: Deactivate account")
+    S7("S7: Deactivate account")
     M2{" "}
     S6("S6: Record the action in the action log [FR-06-08]")
     S4("S4: Confirm that the operation is complete [FR-06-01, FR-06-06, FR-06-07]")
@@ -56,7 +56,7 @@ swimlane-beta TB
   D4 -->|"[Edit]"| A4 --> M1
   D4 -->|"[Deactivate]"| A5 --> D6
   D6 -->|"[No]"| stop1
-  D6 -->|"[Yes]"| S8 --> O2 --> M2
+  D6 -->|"[Yes]"| S7 --> O2 --> M2
   M1 --> D2
   D2 -->|"[No]"| S2 --> D3
   D2 -->|"[Yes]"| D5
@@ -91,6 +91,7 @@ Reading notes:
 | A2   | Action      | Provide account information and, for a family account, the resident or residents to link                                      | FR-06-01, FR-06-05                     |
 | A4   | Action      | Select an active account and provide the changes (name, contact information or a new password)                                | FR-06-06                               |
 | A5   | Action      | Select an active account to deactivate                                                                                        | FR-06-07                               |
+| D6	 | Decision	   | Does Admin confirm the deactivation?	                                                                                         | FR-06-07 
 | M1   | Merge       | (no text)                                                                                                                     | n/a                                    |
 | D2   | Decision    | Is the information complete and valid (a family account needs a resident), and is the identifier not used by another account? | FR-06-04, FR-06-05                     |
 | S2   | Action      | Identify and report information errors                                                                                        | FR-06-04                               |
@@ -130,7 +131,8 @@ One row per outgoing branch of every decision. DBIZ3 turns each row into at leas
 | D2 \[Yes\] → D5 \[Yes\]                                            | the resident "Nguyễn Văn An" exists and the Admin submits name "Nguyễn Thị Lan", role "Family", identifier "lan.family", resident "Nguyễn Văn An" | the Admin submits the information                                     | one account "lan.family" is saved and linked to "Nguyễn Văn An" only, the Account is in state Active, the action is recorded, and the access check in AD-UC-08 passes for that resident when she opens the mobile app |
 | D1 \[Yes\] → D4 \[Edit\] → D2 \[Yes\] → D5 \[No\]                  | the active account "nurse03" belongs to a Nurse whose phone number changed                                                                               | the Admin enters the new phone number and a new password and submits  | the changes are saved, the role and any resident links are unchanged, the account stays Active, the action is recorded, and a confirmation is shown                                                                   |
 | D4 \[Edit\] → D2 \[No\] → D3 \[Yes\] → A3 → M1 → D2                | the Admin changes the identifier of "nurse03" to "nurse01", which another account already uses                                                    | the Admin chooses to continue and changes the identifier to "nurse04" | the error "identifier already in use" is reported first and nothing is saved; the corrected submission goes from A3 through M1 back to D2, is validated again and is then saved                                       |
-| D1 \[Yes\] → D4 \[Deactivate\]                                     | the active account "nurse03" belongs to a Nurse who left, and has one open session                                                                       | the Admin deactivates the account                                     | the Account is in state Inactive, the open session is ended, a later sign-in or request with "nurse03" is rejected, the account data and history are kept, the action is recorded, and a confirmation is shown        |
+| D1 [Yes] → D4 [Deactivate] → D6 [Yes]                                     | the active account "nurse03" belongs to a Nurse who left, and has one open session                                                                       | the Admin deactivates the account                                     | the Account is in state Inactive, the open session is ended, a later sign-in or request with "nurse03" is rejected, the account data and history are kept, the action is recorded, and a confirmation is shown        |
+| D4 [Deactivate] → D6 [No]                                     | the active account “nurse03” has one open session                                                                       | the Admin selects it for deactivation and does not confirm                                     | the account stays Active, the session stays open, nothing is recorded in the action log, and the flow ends        |
 
 ## 4. Object states used
 
