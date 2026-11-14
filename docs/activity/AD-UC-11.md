@@ -146,10 +146,10 @@ Filled in during Lesson 8, from the Screen List.
 
 | Admin action | Screen ID |
 | :---- | :---- |
-| Request account management and choose an operation |  |
-| Provide account information (and the resident to link), Adjust account information |  |
-| Select an account and provide the changes |  |
-| Select an account to deactivate |  |
+| Request account management and choose an operation | S-F06-01 |
+| Provide account information (and the resident to link), Adjust account information | S-F06-02 |
+| Select an account and provide the changes | S-F06-03 |
+| Select an account to deactivate | S-F06-01 |
 
 ## 6. Open questions
 
