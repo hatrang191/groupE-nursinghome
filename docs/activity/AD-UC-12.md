@@ -10,7 +10,7 @@
 | Inputs (L3-L5) | Context Diagram (Admin) · Use Case Diagram · Sequence: SD-UC-12 · Architecture · W1 rows FR-06-02, FR-06-03, FR-06-08 |
 | Trigger | The Admin selects a role for an account, including when a staff member changes position |
 | Preconditions | The Admin is signed in. The selected account is Active. |
-| Success end state | The selected account holds the assigned role and only the permissions that come with it; the permissions of the previous role no longer apply. The change takes effect on the account's next request, with no sign-out needed. The action is recorded in the action log. |
+| Success end state | The selected account holds the assigned role and only the permissions that come with it; the permissions of the previous role no longer apply. The change takes effect on the account's next request, with no sign-out needed. The Admin has seen a confirmation. The action is recorded in the action log.|
 | Failure end state | No role is changed; the Admin is told why (not enough permission, or the request is outside the permitted scope). |
 | FRs covered | FR-06-02, FR-06-03, FR-06-08 |
 | Business rules applied |  |
@@ -31,20 +31,20 @@ swimlane-beta TB
     S1("S1: Reject request due to insufficient permission [FR-06-03]")
     M1{" "}
     S6("S6: Identify current role and the roles Admin is allowed to assign [FR-06-02, FR-06-03]")
-    D2{"D2: Is the role assignment request<br>within Admin's permissions? [FR-06-03]"}
-    S5("S5: Reject role assignment request outside the permitted scope [FR-06-03]")
+    D2{"D2: Is the role assignment request<br>within Admin's permissions? [FR-06-02]"}
+    S5("S5: Reject role assignment request outside the permitted scope [FR-06-02]")
     S2("S2: Replace the account's current role and permissions with the selected role and its permissions [FR-06-02]")
     O1["Role [Authorized]"]
     S7("S7: Record the action in the action log [FR-06-08]")
-    O2["Role [Unauthorized]"]
+    S4("S4: Confirm to the Admin that the role has been assigned [FR-06-02]")
     M2{" "}
     stop1@{ shape: fr-circ }
   end
   start --> A1 --> D1
-  D1 -->|"[No]"| S1 --> O2 --> M2
+  D1 -->|"[No]"| S1 --> M2
   D1 -->|"[Yes]"| M1 --> S6 --> A3 --> D2
   D2 -->|"[No]"| S5 --> M1
-  D2 -->|"[Yes]"| S2 --> O1 --> S7 --> M2
+  D2 -->|"[Yes]"| S2 --> O1 --> S7 --> S4 --> M2
   M2 --> stop1
 ```
 
@@ -52,7 +52,7 @@ Reading notes:
 
 - D1 and D2 are **decision** nodes. Every outgoing flow carries a guard.
 * `M1` is a **merge** node. The flow coming back from S5 (request rejected as outside the permitted scope) and the flow from D1 \[Yes\] both enter `M1` before S6, so S6 is never waiting for two incoming control flows (OMG UML 2.5.1, sub clause 15.2.3.2). The flow `S5 --> M1` lets the Admin choose a role again.
-- `O1` and `O2` are **object nodes**. After S2 succeeds, the object `Role` is in state `Authorized` (O1). After S1 rejects the request, the object `Role` is in state `Unauthorized` (O2).
+- `O1` is an object node. After S2 succeeds, the object `Role` is in state `Authorized`. 
 - S2 **replaces** the old role and permissions instead of only saving the new ones, so a staff member who changes position never keeps the permissions of the old position.
 - This diagram has no parallel behaviour, so it has no fork and no join.
 
@@ -64,15 +64,15 @@ Reading notes:
 | A1 | Action | Identify the active account to assign a role to | FR-06-02 |
 | D1 | Decision | Does Admin have permission to assign roles? | FR-06-03 |
 | S1 | Action | Reject request due to insufficient permission | FR-06-03 |
-| O2 | Object node | Role [Unauthorized] | FR-06-03 (state value) |
 | M1 | Merge | (no text) | n/a |
 | S6 | Action | Identify current role and the roles Admin is allowed to assign | FR-06-02, FR-06-03 |
 | A3 | Action | Select role and confirm request | FR-06-02 |
-| D2 | Decision | Is the role assignment request within Admin's permissions? | FR-06-03 |
-| S5 | Action | Reject role assignment request outside the permitted scope | FR-06-03 |
+| D2 | Decision | Is the role assignment request within Admin's permissions? | FR-06-02 |
+| S5 | Action | Reject role assignment request outside the permitted scope | FR-06-02 |
 | S2 | Action | Replace the account's current role and permissions with the selected role and its permissions | FR-06-02 |
 | O1 | Object node | Role [Authorized] | FR-06-02 (state value) |
 | S7 | Action | Record the action in the action log | FR-06-08 |
+| S4 | Action | Confirm to the Admin that the role has been assigned | FR-06-02 |
 | M2 | Merge | (no text) | n/a |
 
 Proposed FRs that are not yet in W1:
@@ -85,22 +85,22 @@ Proposed FRs that are not yet in W1:
 
 | Branch | Given | When | Then |
 | :---- | :---- | :---- | :---- |
-| D1 \[No\] | the admin does not have permission to assign roles | the admin selects an account to assign a role | no role is changed, the request is rejected with an insufficient-permission message, and the Role is in state Unauthorized |
+| D1 \[No\] | the admin does not have permission to assign roles | the admin selects an account to assign a role | no role is changed, the request is rejected with an insufficient-permission message |
 | D1 \[Yes\] → D2 \[No\] → S5 → M1 → S6 | the admin may assign roles but not the role they choose | the admin selects that role and confirms | no role is changed; the request is rejected as outside the permitted scope, the flow goes from S5 through M1 back to S6, and the Admin can choose again |
-| D1 \[Yes\] → D2 \[Yes\] | the admin may assign roles, the chosen role is within their permissions, and the active account currently holds the role "Nurse" | the admin selects the role "Receptionist" and confirms | the account holds the role "Receptionist" and its permissions only, the permissions of "Nurse" no longer apply on the account's next request, the Role is in state Authorized, and the action is recorded in the action log |
+| D1 \[Yes\] → D2 \[Yes\] | the admin may assign roles, the chosen role is within their permissions, and the active account currently holds the role "Nurse" | the admin selects the role "Receptionist" and confirms | the account holds the role "Receptionist" and its permissions only, the permissions of "Nurse" no longer apply on the account's next request, the Role is in state Authorized, and the Admin sees a confirmation. The action is recorded in the action log |
 
 ## 4. Object states used
 
 | Object | States that appear in this diagram | Full state list (all diagrams) |
 | :---- | :---- | :---- |
-| Role | Authorized (after S2), Unauthorized (after S1) | Authorized, Unauthorized |
+| Role | Authorized (after S2) | Authorized |
 
 ## 5. Screens touched
 
 | Admin action | Screen ID |
 | :---- | :---- |
-| Identify the account to assign a role to |  |
-| Select role and confirm request |  |
+| Identify the account to assign a role to | S-F06-01 |
+| Select role and confirm request | S-F06-03 |
 
 ## 6. Open questions
 
@@ -121,9 +121,3 @@ Proposed FRs that are not yet in W1:
 | Every FR of UC-12 appears in the diagram          | Pass (3 of 3)  |     |      |
 | Lane names match the Context Diagram              | Pass           |     |      |
 | AI critic prompt run, findings resolved or logged | Pass           |     |      |
-
-## Notes for the integrator: changes needed in W1
-
-| FR       | Function                                          | Change                                                             |
-| :------- | :------------------------------------------------ | :----------------------------------------------------------------- |
-| FR-06-08 | Record account and role changes in the action log | **New function (F-06, Should).** Covers S7 here and S6 in AD-UC-11.  |
