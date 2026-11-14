@@ -23,7 +23,7 @@ Lesson 5 (block W4). Cut by lowering priority, never by lowering estimates. Ever
 | F-03 | FR-03-02 | Receive alert (nurse) | Must | Must |  | 8.8 | 2.440.000 |
 | F-03 | FR-03-03 | Acknowledge alert | Must | Must |  | 5.4 | 1.420.000 |
 | F-03 | FR-03-04 | Notify nurses again when nobody acknowledges | Must | Must |  | 3.4 | 1.020.000 |
-| F-03 | FR-03-05 | Log failed alert | Must | Should | R2: If no nurse answers an alert after 3 notices, the system keeps a record of it so the nursing home can investigate later if needed. Until this is built, the unanswered alert still stays on every nurse's screen, so nothing is missed. | 3.4 | 1.020.000 |
+| F-03 | FR-03-05 | Log failed alert | Must | Should | R2: Logging the alert will record a list of failed alerts that no nurse answers after 3 notices, making it better for later review. If this is not built, the nurse can still acknowledge the unanswered alert still that appears on every nurse's screen, so nothing is missed. | 3.4 | 1.020.000 |
 | F-03 | FR-03-06 | Close alert with outcome | Must | Must |  | 5.4 | 1.420.000 |
 | F-03 | FR-03-07 | Group repeated radar events | Should | Should |  | 6.8 | 2.040.000 |
 | F-03 | FR-03-08 | Always on (non-functional) | Must | Must |  | 9.2 | 2.760.000 |
