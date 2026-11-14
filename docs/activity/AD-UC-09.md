@@ -13,7 +13,7 @@
 | Success end state | The message is added to the relevant conversation, either with the nurses (family-initiated) or with the resident's family (nurse-initiated). |
 | Failure end state | No message is added to the conversation |
 | FRs covered | FR-04-03, FR-04-04 |
-| Business rules applied | None. No explicit business rules are documented for UC-08 in the current W0/W1. |
+| Business rules applied | None |
 | Version / status | v1.0 · Draft |
 | Author | Trần Lê Bảo An |
 
@@ -92,7 +92,7 @@ No object states have been specified for UC-08 in the current W0/W1.
 
 |  | Question | Blocking? | Default applied |
 | :---- | :---- | :---- | :---- |
-| 1 | Can the conversation continue after a message has been added? Neither FR-04-02 nor FR-04-03 specifies whether further messages can be exchanged. | No | The conversation can continue, as shown by the loop d2 \[yes\] → m0. Neither party is required to reply to every message. |
+| 1 | Can the conversation continue after a message has been added? Neither FR-04-03 nor FR-04-04 specifies whether further messages can be exchanged. | No | The conversation can continue, as shown by the loop d2 \[yes\] → m0. Neither party is required to reply to every message. |
 | 2 | \[NEEDS CLARIFICATION: Does a nurse need to be assigned to a resident, or linked to the resident's family, before they can exchange messages? FR-04-03 and FR-04-04 do not specify this requirement.\] | Yes | No access restrictions are included in the diagram. Any family member and any nurse can exchange messages. |
 | 3 | \[NEEDS CLARIFICATION: If the system fails to add a sent message to the conversation, is the message considered sent, or should the sender be notified that the message was not added?\] | No | No failure flow is modelled. If the system fails to add the message to the conversation, the message is not added. |
 
