@@ -28,10 +28,4 @@ sequenceDiagram
   W-->>BOD: Show the three figures for the selected period
 ```
 
-FR-05-01 describes one straight exchange with no outcome decided inside the system, so the diagram
-has no `alt` fragment. Choosing another period repeats the same exchange and is not drawn as a
-second fragment. The API Server computes the totals (Architecture: "Compute reports") and the
-Database only keeps the alerts, so the Database lifeline is read, never written. The supplied
-requirements do not say what is shown when the period has no alerts, how alerts that were never
-acknowledged count in the average, or how a report is refused for a user without permission (the
-project-wide login assumption covers the session and role check), so none of these is drawn.
+FR-05-01 describes one straight exchange, so the diagram has no alt fragment. Choosing another period repeats the same exchange and is not drawn as a second fragment. The API Server computes the totals (Architecture: "Compute reports") and the Database only keeps the alerts, so the Database lifeline is read, not written. 
