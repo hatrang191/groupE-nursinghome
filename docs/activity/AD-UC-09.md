@@ -57,8 +57,6 @@ Reading notes:
 
 * Neither side is required to reply to a message. The diagram models each message as one initiation, and the loop only allows a further message.
 
-* No message delivery, read receipts, online status, validation, access control or error handling is modelled, because none is in FR-04-03 or FR-04-04.
-
 # **2\. Node trace**
 
 | Node | Kind | Text | Traces to |
